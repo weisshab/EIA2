@@ -1,4 +1,4 @@
-document.addEventListener('Load', test);
+document.addEventListener('Load', moin);
 
 function moin(): void{
     let text:string;
