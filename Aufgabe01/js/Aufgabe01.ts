@@ -89,6 +89,16 @@ function init(): void {
     
     //Skifahrer
     crc2.beginPath();
+    crc2.moveTo(240, 275);
+    crc2.lineTo(280, 290);
+    crc2.lineTo(275, 293);
+    crc2.lineTo(235, 278);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = "#0000FF";
+    crc2.fill();
+    
+    crc2.beginPath();
     crc2.moveTo(248, 260);
     crc2.lineTo(252, 260);
     crc2.lineTo(252, 280);
@@ -103,6 +113,13 @@ function init(): void {
     crc2.closePath();
     crc2.stroke();
     crc2.fillStyle = "#DF7401";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(255, 248, 1, 0, 2 * Math.PI);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = "#000000";
     crc2.fill();
     
     
