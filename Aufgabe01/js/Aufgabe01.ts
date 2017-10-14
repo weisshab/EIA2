@@ -11,6 +11,28 @@ function init(): void {
     crc2.fillStyle = "#81F7F3";
     crc2.fillRect(0, 0, 800, 600);
     
+    //Berg2
+    crc2.beginPath();
+    crc2.moveTo(600, 200);
+    crc2.lineTo(800, 600);
+    crc2.lineTo(300,600);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = "#555555";
+    crc2.fill();
+    
+    //Berg2
+    crc2.beginPath();
+    crc2.moveTo(400, 150);
+    crc2.lineTo(700, 600);
+    crc2.lineTo(100,600);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = "#555555";
+    crc2.fill();
+    
+    
+    
     //Schnee Piste
     crc2.beginPath();
     crc2.moveTo(0, 0);
@@ -201,13 +223,63 @@ function init(): void {
     crc2.fillRect(590, 456, 10, 5);
     
     
-    
     crc2.beginPath();       //Seil
     crc2.moveTo(0, 10);
     crc2.lineTo(782, 600);
     crc2.closePath();
     crc2.stroke();
     
-    //Schneemann
+    //Wolke1
+    crc2.beginPath();
+    crc2.arc(250, 50, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(270, 60, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(250, 60, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(230, 50, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    
+    //Wolke2
+    crc2.beginPath();
+    crc2.arc(600, 100, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(620, 110, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(600, 110, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    crc2.beginPath();
+    crc2.arc(580, 100, 20, 0, 2 * Math.PI)
+    crc2.closePath();
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    
+    
     
 }
