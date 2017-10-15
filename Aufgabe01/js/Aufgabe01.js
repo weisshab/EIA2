@@ -9,9 +9,9 @@ nicht kopiert und auch nicht diktiert.
 */
 window.addEventListener("load", init);
 function init() {
-    var canvas = document.getElementsByTagName("canvas")[0];
+    let canvas = document.getElementsByTagName("canvas")[0];
     console.log(canvas);
-    var crc2 = canvas.getContext("2d");
+    let crc2 = canvas.getContext("2d");
     console.log(crc2);
     //Himmel
     crc2.fillStyle = "#81F7F3";

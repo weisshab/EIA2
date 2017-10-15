@@ -1,7 +1,7 @@
 document.addEventListener('Load', moin);
 function moin() {
-    var text = "";
-    var person = prompt("Wie heissen Sie?", "Name");
+    let text = "";
+    let person = prompt("Wie heissen Sie?", "Name");
     if (person == null || person == "") {
         text = "Nameless";
     }
