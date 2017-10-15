@@ -1,3 +1,12 @@
+/*
+Aufgabe: Skipiste A1
+Name: Bastian Weisshaar
+Matrikel: 256578
+Datum: 12.10.2017
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
 window.addEventListener("load", init);
 function init() {
     var canvas = document.getElementsByTagName("canvas")[0];
