@@ -44,6 +44,7 @@ function init2() {
     crc2.stroke();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
+    doTree(100, 200);
     /*
     //Baum1
     crc2.beginPath();
@@ -252,7 +253,6 @@ function init2() {
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
-    doTree(Math.random(), Math.random());
 }
 function doTree(b, h) {
     let i;
