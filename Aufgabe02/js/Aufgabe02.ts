@@ -11,13 +11,13 @@ nicht kopiert und auch nicht diktiert.
 window.addEventListener("load", init2);
 
 let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-let crc2: CanvasRenderingContext2D
+let crc2: CanvasRenderingContext2D;
 
 function init2(): void {
     
     console.log(canvas);
     
-   crc2 = canvas.getContext("2d");
+    crc2 = canvas.getContext("2d");
     console.log(crc2);
   
     //Himmel
@@ -31,7 +31,7 @@ function init2(): void {
     crc2.beginPath();
     crc2.moveTo(600, 200);
     crc2.lineTo(800, 600);
-    crc2.lineTo(300,600);
+    crc2.lineTo(300, 600);
     crc2.closePath();
     crc2.stroke();
     crc2.fillStyle = "#555555";
@@ -41,7 +41,7 @@ function init2(): void {
     crc2.beginPath();
     crc2.moveTo(400, 150);
     crc2.lineTo(700, 600);
-    crc2.lineTo(100,600);
+    crc2.lineTo(100, 600);
     crc2.closePath();
     crc2.stroke();
     crc2.fillStyle = "#555555";
@@ -59,7 +59,7 @@ function init2(): void {
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
-    doTree(100,200);
+    drawTree(100, 200, "#ffff00");
     /*
     //Baum1
     crc2.beginPath();
@@ -249,25 +249,25 @@ function init2(): void {
     
     //Wolke1
     crc2.beginPath();
-    crc2.arc(250, 50, 20, 0, 2 * Math.PI)
+    crc2.arc(250, 50, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(270, 60, 20, 0, 2 * Math.PI)
+    crc2.arc(270, 60, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(250, 60, 20, 0, 2 * Math.PI)
+    crc2.arc(250, 60, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(230, 50, 20, 0, 2 * Math.PI)
+    crc2.arc(230, 50, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
@@ -275,74 +275,67 @@ function init2(): void {
     
     //Wolke2
     crc2.beginPath();
-    crc2.arc(600, 100, 20, 0, 2 * Math.PI)
+    crc2.arc(600, 100, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(620, 110, 20, 0, 2 * Math.PI)
+    crc2.arc(620, 110, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(600, 110, 20, 0, 2 * Math.PI)
+    crc2.arc(600, 110, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
     crc2.beginPath();
-    crc2.arc(580, 100, 20, 0, 2 * Math.PI)
+    crc2.arc(580, 100, 20, 0, 2 * Math.PI);
     crc2.closePath();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
     
 }
 
-function doTree(b:number,h: number):void{
-    let i:number;
-    let x:number;
+function drawTree(_x: number, _y: number, _color: string): void {
+       
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 20, _y + 30);
+        crc2.lineTo(_x - 20, _y + 30);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
     
-    for(i=0; i<=3; i++){
         crc2.beginPath();
-        crc2.moveTo(b, h);
-        crc2.lineTo(b+20, h+30);
-        crc2.lineTo(b-20, h+30);
+        crc2.moveTo(_x, _y + 30);
+        crc2.lineTo(_x + 20, _y + 60);
+        crc2.lineTo(_x - 20, _y + 60);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#0B610B";
+        crc2.fillStyle = _color;
         crc2.fill();
-        
+    
         crc2.beginPath();
-        crc2.moveTo(b, h+30);
-        crc2.lineTo(b+20, h+60);
-        crc2.lineTo(b-20, h+60);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0B610B";
-        crc2.fill();
-        
-        crc2.beginPath();
-        crc2.moveTo(b-5, h+90);
-        crc2.lineTo(b+5, h+90);
-        crc2.lineTo(b+5, h+110);
-        crc2.lineTo(b-5, h+110);
+        crc2.moveTo(_x - 5, _y + 90);
+        crc2.lineTo(_x + 5, _y + 90);
+        crc2.lineTo(_x + 5, _y + 110);
+        crc2.lineTo(_x - 5, _y + 110);
         crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = "#61210B";
         crc2.fill();
-        
+    
         crc2.beginPath();
-        crc2.moveTo(b, h+60);
-        crc2.lineTo(b+20, h+90);
-        crc2.lineTo(b-20, h+90);
+        crc2.moveTo(_x, _y + 60);
+        crc2.lineTo(_x + 20, _y + 90);
+        crc2.lineTo(_x - 20, _y + 90);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#0B610B";
+        crc2.fillStyle = _color;
         crc2.fill();
-        
-        b= Math.random();
-        h= Math.random();
-    }
 }

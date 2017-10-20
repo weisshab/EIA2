@@ -44,7 +44,7 @@ function init2() {
     crc2.stroke();
     crc2.fillStyle = "#ffffff";
     crc2.fill();
-    doTree(100, 200);
+    drawTree(100, 200, "#ffff00");
     /*
     //Baum1
     crc2.beginPath();
@@ -254,45 +254,39 @@ function init2() {
     crc2.fillStyle = "#ffffff";
     crc2.fill();
 }
-function doTree(b, h) {
-    let i;
-    let x;
-    for (i = 0; i <= 3; i++) {
-        crc2.beginPath();
-        crc2.moveTo(b, h);
-        crc2.lineTo(b + 20, h + 30);
-        crc2.lineTo(b - 20, h + 30);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0B610B";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(b, h + 30);
-        crc2.lineTo(b + 20, h + 60);
-        crc2.lineTo(b - 20, h + 60);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0B610B";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(b - 5, h + 90);
-        crc2.lineTo(b + 5, h + 90);
-        crc2.lineTo(b + 5, h + 110);
-        crc2.lineTo(b - 5, h + 110);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#61210B";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(b, h + 60);
-        crc2.lineTo(b + 20, h + 90);
-        crc2.lineTo(b - 20, h + 90);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0B610B";
-        crc2.fill();
-        b = Math.random();
-        h = Math.random();
-    }
+function drawTree(_x, _y, _color) {
+    crc2.beginPath();
+    crc2.moveTo(_x, _y);
+    crc2.lineTo(_x + 20, _y + 30);
+    crc2.lineTo(_x - 20, _y + 30);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = _color;
+    crc2.fill();
+    crc2.beginPath();
+    crc2.moveTo(_x, _y + 30);
+    crc2.lineTo(_x + 20, _y + 60);
+    crc2.lineTo(_x - 20, _y + 60);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = _color;
+    crc2.fill();
+    crc2.beginPath();
+    crc2.moveTo(_x - 5, _y + 90);
+    crc2.lineTo(_x + 5, _y + 90);
+    crc2.lineTo(_x + 5, _y + 110);
+    crc2.lineTo(_x - 5, _y + 110);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = "#61210B";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.moveTo(_x, _y + 60);
+    crc2.lineTo(_x + 20, _y + 90);
+    crc2.lineTo(_x - 20, _y + 90);
+    crc2.closePath();
+    crc2.stroke();
+    crc2.fillStyle = _color;
+    crc2.fill();
 }
 //# sourceMappingURL=Aufgabe02.js.map
