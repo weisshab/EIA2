@@ -343,6 +343,6 @@ function doTree(b:number,h: number):void{
         crc2.fill();
         
         b= Math.random();
-        h=Math.random();
+        h= Math.random();
     }
 }
