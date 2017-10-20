@@ -187,6 +187,15 @@ namespace A2 {
             drawCloud(x, y, "#ffffff");
         }
         
+        //random Schneeflocken zeichnen
+        for (let i: number = 0; i <= 200; i++) {
+            let x: number = Math.random() * 800;
+            let y: number = Math.random() * 600;
+            drawSnow(x, y);
+        }
+        
+        
+        
         
         
     }
@@ -231,6 +240,7 @@ namespace A2 {
             crc2.fill();
     }
     
+    
     function drawCloud(_x: number, _y: number, _color: string): void {
         crc2.beginPath();
         crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
@@ -252,6 +262,14 @@ namespace A2 {
         
         crc2.beginPath();
         crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+    }
+    
+    function drawSnow(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fillStyle = "#ffffff";
         crc2.fill();

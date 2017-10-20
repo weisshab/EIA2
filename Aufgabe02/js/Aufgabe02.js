@@ -147,6 +147,12 @@ var A2;
             let y = 20 + Math.random() * 50;
             drawCloud(x, y, "#ffffff");
         }
+        //random Schneeflocken zeichnen
+        for (let i = 0; i <= 200; i++) {
+            let x = Math.random() * 800;
+            let y = Math.random() * 600;
+            drawSnow(x, y);
+        }
     }
     function drawTree(_x, _y, _color) {
         crc2.beginPath();
@@ -201,6 +207,13 @@ var A2;
         crc2.fill();
         crc2.beginPath();
         crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+    }
+    function drawSnow(_x, _y) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
