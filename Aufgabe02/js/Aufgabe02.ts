@@ -1,8 +1,8 @@
 /* 
-Aufgabe: Skipiste A1
+Aufgabe: Funktionen A2
 Name: Bastian Weisshaar
 Matrikel: 256578
-Datum: 12.10.2017
+Datum: 22.10.2017
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
