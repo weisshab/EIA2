@@ -153,11 +153,9 @@ var A3;
         //        for (let i: number = 0; i <= 200; i++) {
         //            let x: number = Math.random() * 800;
         //            let y: number = Math.random() * 600;
-        //            drawSnow(x, y);
+        //            animateSnow();
         //        }
         imgData = crc2.getImageData(0, 0, 800, 600);
-        animateSnow(); //Schnee Funktion
-        animateSki(); //Skifahrer
     }
     function drawTree(_x, _y, _color) {
         crc2.beginPath();
@@ -224,15 +222,16 @@ var A3;
         crc2.fill();
     }
     //Schnee fallen lassen
+    let x = Math.random() * 800;
+    let y = 20;
     function animateSnow() {
         console.log("Timeout");
         crc2.putImageData(imgData, 0, 0);
         //random Schneeflocken zeichnen
-        for (let i = 0; i <= 200; i++) {
-            let x = Math.random() * 800;
-            let y = Math.random() * 600;
+        for (let i = 0; i < 200; i++) {
             drawSnow(x, y);
         }
+        y += 5;
         window.setTimeout(animateSnow, 50);
         //Skifahrer
         function animateSki() {

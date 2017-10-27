@@ -197,14 +197,10 @@ namespace A3 {
         //        for (let i: number = 0; i <= 200; i++) {
         //            let x: number = Math.random() * 800;
         //            let y: number = Math.random() * 600;
-        //            drawSnow(x, y);
+        //            animateSnow();
         //        }
 
         imgData = crc2.getImageData(0, 0, 800, 600);
-
-
-        animateSnow();  //Schnee Funktion
-        animateSki();   //Skifahrer
 
 
     }
@@ -286,17 +282,21 @@ namespace A3 {
 
 
     //Schnee fallen lassen
+
+    let x: number = Math.random() * 800;
+    let y: number = 20;
+    
     function animateSnow(): void {
 
         console.log("Timeout");
         crc2.putImageData(imgData, 0, 0);
 
         //random Schneeflocken zeichnen
-        for (let i: number = 0; i <= 200; i++) {
-            let x: number = Math.random() * 800;
-            let y: number = Math.random() * 600;
+        for (let i: number = 0; i < 200; i++) {
             drawSnow(x, y);
         }
+
+        y += 5;
 
         window.setTimeout(animateSnow, 50);
 
