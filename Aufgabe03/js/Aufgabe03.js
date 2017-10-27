@@ -7,10 +7,12 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-var A2;
-(function (A2) {
+var A3;
+(function (A3) {
     window.addEventListener("load", init);
     let crc2;
+    let x = 20;
+    let y = 500;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -135,6 +137,7 @@ var A2;
         crc2.lineTo(782, 600);
         crc2.closePath();
         crc2.stroke();
+        drawTree(100, 200, "#0B610B");
         //random B�ume zeichnen
         for (let i = 1; i < 6; i++) {
             let x = 30 + Math.random() * 450;
@@ -153,6 +156,7 @@ var A2;
             let y = Math.random() * 600;
             drawSnow(x, y);
         }
+        animate();
     }
     function drawTree(_x, _y, _color) {
         crc2.beginPath();
@@ -218,5 +222,15 @@ var A2;
         crc2.fillStyle = "#ffffff";
         crc2.fill();
     }
-})(A2 || (A2 = {}));
+    function animate() {
+        console.log("Timeout");
+        crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
+        for (let i = 0; i < arrayX.length; i++) {
+            arrayX[i] += Math.random() * 4 - 2; // hier experimentieren um
+            arrayY[i] += Math.random() * 4 - 2; // andere Bewegungsmuster zu finden
+            crc2.fillStyle = "#ff0000";
+            crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
+        }
+    }
+})(A3 || (A3 = {}));
 //# sourceMappingURL=Aufgabe03.js.map

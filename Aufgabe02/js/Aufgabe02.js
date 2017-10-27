@@ -135,6 +135,8 @@ var A2;
         crc2.lineTo(782, 600);
         crc2.closePath();
         crc2.stroke();
+        //Baum
+        drawTree(50, 300, "#0B610B");
         //random B�ume zeichnen
         for (let i = 1; i < 6; i++) {
             let x = 30 + Math.random() * 450;

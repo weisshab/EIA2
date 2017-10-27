@@ -173,6 +173,9 @@ namespace A2 {
         crc2.closePath();
         crc2.stroke();
         
+        //Baum
+        drawTree(50, 300, "#0B610B");
+        
         //random Bäume zeichnen
         for (let i: number = 1; i < 6; i++) {
             let x: number = 30 + Math.random() * 450;
