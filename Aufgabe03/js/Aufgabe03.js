@@ -11,8 +11,7 @@ var A3;
 (function (A3) {
     window.addEventListener("load", init);
     let crc2;
-    let x = 20;
-    let y = 500;
+    let imgData;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -150,13 +149,15 @@ var A3;
             let y = 20 + Math.random() * 50;
             drawCloud(x, y, "#ffffff");
         }
-        //random Schneeflocken zeichnen
-        for (let i = 0; i <= 200; i++) {
-            let x = Math.random() * 800;
-            let y = Math.random() * 600;
-            drawSnow(x, y);
-        }
-        animate();
+        //        //random Schneeflocken zeichnen
+        //        for (let i: number = 0; i <= 200; i++) {
+        //            let x: number = Math.random() * 800;
+        //            let y: number = Math.random() * 600;
+        //            drawSnow(x, y);
+        //        }
+        imgData = crc2.getImageData(0, 0, 800, 600);
+        animateSnow(); //Schnee Funktion
+        animateSki(); //Skifahrer
     }
     function drawTree(_x, _y, _color) {
         crc2.beginPath();
@@ -222,14 +223,49 @@ var A3;
         crc2.fillStyle = "#ffffff";
         crc2.fill();
     }
-    function animate() {
+    //Schnee fallen lassen
+    function animateSnow() {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
-        for (let i = 0; i < arrayX.length; i++) {
-            arrayX[i] += Math.random() * 4 - 2; // hier experimentieren um
-            arrayY[i] += Math.random() * 4 - 2; // andere Bewegungsmuster zu finden
-            crc2.fillStyle = "#ff0000";
-            crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
+        crc2.putImageData(imgData, 0, 0);
+        //random Schneeflocken zeichnen
+        for (let i = 0; i <= 200; i++) {
+            let x = Math.random() * 800;
+            let y = Math.random() * 600;
+            drawSnow(x, y);
+        }
+        window.setTimeout(animateSnow, 50);
+        //Skifahrer
+        function animateSki() {
+            crc2.beginPath();
+            crc2.moveTo(240, 305);
+            crc2.lineTo(280, 320);
+            crc2.lineTo(275, 323);
+            crc2.lineTo(235, 308);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#0000FF";
+            crc2.fill();
+            crc2.beginPath();
+            crc2.moveTo(248, 290);
+            crc2.lineTo(252, 290);
+            crc2.lineTo(252, 310);
+            crc2.lineTo(248, 310);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#DF7401";
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(250, 280, 10, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#DF7401";
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(255, 278, 1, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = "#000000";
+            crc2.fill();
         }
     }
 })(A3 || (A3 = {}));
