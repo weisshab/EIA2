@@ -14,7 +14,7 @@ namespace A3 {
 
     let crc2: CanvasRenderingContext2D;
 
-    let imgData;
+    let imgData: ImageData;
 
     let snowPos: number[] = [];         //Startwert Schneeflocken
 
@@ -57,9 +57,9 @@ namespace A3 {
         drawTree(100, 200, "#0B610B");  //fest positionierter Baum
 
         //random Bäume zeichnen
-        for (let i: number = 1; i < 6; i++) {
-            let x: number = 30 + Math.random() * 450;
-            let y: number = 250 + Math.random() * 300;
+        for (let i: number = 0; i < 6; i++) {
+            let x: number = Math.random() * 400;
+            let y: number = 400 + Math.random() * 100;
             drawTree(x, y, "#0B610B");
         }
 

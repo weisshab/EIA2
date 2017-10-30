@@ -36,9 +36,9 @@ var A3;
         drawLift(); //Skilift zeichnen
         drawTree(100, 200, "#0B610B"); //fest positionierter Baum
         //random B�ume zeichnen
-        for (let i = 1; i < 6; i++) {
-            let x = 30 + Math.random() * 450;
-            let y = 250 + Math.random() * 300;
+        for (let i = 0; i < 6; i++) {
+            let x = Math.random() * 400;
+            let y = 400 + Math.random() * 100;
             drawTree(x, y, "#0B610B");
         }
         //ImageData des Camvas in imgData abspeichern
