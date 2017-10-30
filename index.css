@@ -9,3 +9,15 @@ h1{
 p {
 	font-family:'Arial',sans-serif;
 }
+
+a:link {
+	color:red; text-decoration:none
+}
+
+a:visited {
+	color:blue; text-decoration:none
+}
+
+a:hover {
+	color:black; text-decoration:underline
+}
