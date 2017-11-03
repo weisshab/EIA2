@@ -14,7 +14,7 @@ namespace A3 {
 
     let crc2: CanvasRenderingContext2D;
 
-    let imgData;
+    let imgData: ImageData;
 
     let snowPos: number[] = [];         //Startwert Schneeflocken
 
