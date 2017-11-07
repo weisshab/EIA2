@@ -81,7 +81,7 @@ namespace A3 {
         for (let i: number = 0; i < snowPos.length; i += 2) {
             snowPos[i]++;
             if (snowPos[i] > 600) {
-                snowPos[i] = Math.random();
+                snowPos[i] = 0;
             }
             drawSnow(snowPos[i - 1], snowPos[i]);
 
