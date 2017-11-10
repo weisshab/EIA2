@@ -33,8 +33,10 @@ var A3;
                 x: Math.random() * -32,
                 y: Math.random() * 400,
                 dx: 8,
-                dy: 6,
-                color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
+                dy: Math.random() * 6 + 6,
+                colorHead: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                colorBody: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                colorSki: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
             };
         }
         drawSky(); //Himmel zeichnen
@@ -66,8 +68,12 @@ var A3;
             }
             drawSnow(snowPos[i - 1], snowPos[i]);
         }
-        for (let i = 0; i < 2; i++) {
-            moveAndDrawSquare(skier[i]);
+        for (let i = 0; i < 3; i++) {
+            moveAndDrawSki(skier[i]);
+            if (skier[i].x > 810 && skier[i].y > 610) {
+                skier[i].x = -32;
+                skier[i].y = Math.random() * 400;
+            }
         }
         for (let i = 0; i < cloudPos.length; i += 2) {
             cloudPos[i] += 2;
@@ -77,7 +83,7 @@ var A3;
             drawCloud(cloudPos[i], cloudPos[i - 1], "#ffffff");
         }
         //Alle 50ms 
-        window.setTimeout(animate, 50);
+        window.setTimeout(animate, 30);
     }
     //B�ume
     function drawTree(_x, _y, _color) {
@@ -147,7 +153,7 @@ var A3;
         crc2.fill();
     }
     //Skifahrer
-    function drawSki(x, y, _color) {
+    function drawSki(x, y, _colorHead, _colorBody, _colorSki) {
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 40, y + 15);
@@ -155,7 +161,7 @@ var A3;
         crc2.lineTo(x - 5, y + 3);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = _color;
+        crc2.fillStyle = _colorSki;
         crc2.fill();
         crc2.beginPath();
         crc2.moveTo(x + 8, y - 15);
@@ -164,19 +170,19 @@ var A3;
         crc2.lineTo(x + 8, y + 5);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = _color;
+        crc2.fillStyle = _colorBody;
         crc2.fill();
         crc2.beginPath();
         crc2.arc(x + 10, y - 25, 10, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = _color;
+        crc2.fillStyle = _colorHead;
         crc2.fill();
         crc2.beginPath();
         crc2.arc(x + 15, y - 27, 1, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = _color;
+        crc2.fillStyle = "#000000";
         crc2.fill();
     }
     //Himmel
@@ -275,10 +281,10 @@ var A3;
         crc2.closePath();
         crc2.stroke();
     }
-    function moveAndDrawSquare(_skier) {
+    function moveAndDrawSki(_skier) {
         _skier.x += _skier.dx;
         _skier.y += _skier.dy; // andere Bewegungsmuster zu finden
-        drawSki(_skier.x, _skier.y, _skier.color);
+        drawSki(_skier.x, _skier.y, _skier.colorHead, _skier.colorBody, _skier.colorSki);
     }
 })(A3 || (A3 = {}));
 //# sourceMappingURL=Aufgabe04.js.map
