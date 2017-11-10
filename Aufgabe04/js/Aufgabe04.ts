@@ -18,7 +18,15 @@ namespace A3 {
 
     let snowPos: number[] = [];         //Startwert Schneeflocken
 
-    let skiPos: number[] = [-32, 20];   //Startwert Skifahrer
+    interface SkiInfo {                 //Skifahrer Interface
+        x: number;
+        y: number;
+        dx: number;
+        dy: number;
+        color: string;
+    }
+
+    let skier: SkiInfo[] = [];
 
     let cloudPos: number[] = [];        //Startwert Wolken
 
@@ -40,6 +48,18 @@ namespace A3 {
         for (let i: number = 0; i < 6; i++) {
             cloudPos.push(Math.random() * 800, Math.random() * 100);
         }
+
+        for (let i: number = 0; i < 100; i++) {
+            skier[i] = {
+                x: Math.random() * -32,
+                y: Math.random() * 400,
+                dx: 8,
+                dy: 6,
+                color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
+            };
+        }
+
+
 
         drawSky();      //Himmel zeichnen
 
@@ -87,14 +107,15 @@ namespace A3 {
 
         }
 
-        skiPos[0] += 2 * 5;
-        skiPos[1] += 2 * 5;
-
-        if (skiPos[0] > 810 && skiPos[1] > 610) {
-            skiPos = [-32, 20];
+        for (let i: number = 0; i < 2; i++) {
+            
+            moveAndDrawSquare(skier[i]);
+            
+            if (skier.x > 810 && skier.y > 610) {
+                skier.x = -32;
+                skier.y = Math.random() * 400;
+            }
         }
-
-        drawSki(skiPos[0], skiPos[1]);
 
         for (let i: number = 0; i < cloudPos.length; i += 2) {
             cloudPos[i] += 2;
@@ -190,7 +211,7 @@ namespace A3 {
 
     //Skifahrer
 
-    function drawSki(x: number, y: number): void {
+    function drawSki(x: number, y: number, _color: string): void {
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 40, y + 15);
@@ -198,7 +219,7 @@ namespace A3 {
         crc2.lineTo(x - 5, y + 3);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#0000FF";
+        crc2.fillStyle = _color;
         crc2.fill();
 
         crc2.beginPath();
@@ -208,21 +229,21 @@ namespace A3 {
         crc2.lineTo(x + 8, y + 5);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#DF7401";
+        crc2.fillStyle = _color;
         crc2.fill();
 
         crc2.beginPath();
         crc2.arc(x + 10, y - 25, 10, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#DF7401";
+        crc2.fillStyle = _color;
         crc2.fill();
 
         crc2.beginPath();
         crc2.arc(x + 15, y - 27, 1, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "#000000";
+        crc2.fillStyle = _color;
         crc2.fill();
     }
 
@@ -355,6 +376,11 @@ namespace A3 {
         crc2.stroke();
     }
 
+    function moveAndDrawSquare(_skier: SkiInfo): void {
+        _skier.x += _skier.dx;
+        _skier.y += _skier.dy; // andere Bewegungsmuster zu finden
 
+        drawSki(_skier.x, _skier.y, _skier.color);
+    }
 
 }
