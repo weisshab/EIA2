@@ -107,9 +107,9 @@ namespace A3 {
 
         }
 
-        for (let i: number = 0; i < 2; i++) {
+        for (let i: number = 0; i < 4; i++) {
             
-            moveAndDrawSquare(skier[i]);
+            moveAndDrawSki(skier[i]);
             
             if (skier.x > 810 && skier.y > 610) {
                 skier.x = -32;
@@ -376,7 +376,7 @@ namespace A3 {
         crc2.stroke();
     }
 
-    function moveAndDrawSquare(_skier: SkiInfo): void {
+    function moveAndDrawSki(_skier: SkiInfo): void {
         _skier.x += _skier.dx;
         _skier.y += _skier.dy; // andere Bewegungsmuster zu finden
 
