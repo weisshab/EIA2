@@ -1,8 +1,8 @@
 /* 
-Aufgabe: Funktionen A2
+Aufgabe: Funktionen A4
 Name: Bastian Weisshaar
 Matrikel: 256578
-Datum: 22.10.2017
+Datum: 12.11.2017
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
@@ -51,6 +51,7 @@ namespace A3 {
             cloudPos.push(Math.random() * 800, Math.random() * 100);
         }
 
+        //Initialisiere Werte für Skifahrer
         for (let i: number = 0; i < 100; i++) {
             skier[i] = {
                 x: Math.random() * -32,
@@ -102,6 +103,7 @@ namespace A3 {
         console.log("Timeout");
         crc2.putImageData(imgData, 0, 0);
 
+        //Animation Schnee
         for (let i: number = 0; i < snowPos.length; i += 2) {
             snowPos[i]++;
             if (snowPos[i] > 600) {
@@ -111,6 +113,7 @@ namespace A3 {
 
         }
 
+        //Animation Skifahrer
         for (let i: number = 0; i < 3; i++) {
 
             moveAndDrawSki(skier[i]);
@@ -126,6 +129,7 @@ namespace A3 {
             }
         }
 
+        //Animation Wolken
         for (let i: number = 0; i < cloudPos.length; i += 2) {
             cloudPos[i] += 2;
             if (cloudPos[i] > 800) {
@@ -135,7 +139,7 @@ namespace A3 {
 
         }
 
-        //Alle 50ms 
+        //Alle Xms 
         window.setTimeout(animate, 30);
 
     }
@@ -385,9 +389,10 @@ namespace A3 {
         crc2.stroke();
     }
 
+    //Funktion zur Bewegung der Skifahrer
     function moveAndDrawSki(_skier: SkiInfo): void {
         _skier.x += _skier.dx;
-        _skier.y += _skier.dy; // andere Bewegungsmuster zu finden
+        _skier.y += _skier.dy; 
 
         drawSki(_skier.x, _skier.y, _skier.colorHead, _skier.colorBody, _skier.colorSki);
     }

@@ -1,8 +1,8 @@
 /*
-Aufgabe: Funktionen A2
+Aufgabe: Funktionen A4
 Name: Bastian Weisshaar
 Matrikel: 256578
-Datum: 22.10.2017
+Datum: 12.11.2017
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
@@ -28,6 +28,7 @@ var A3;
         for (let i = 0; i < 6; i++) {
             cloudPos.push(Math.random() * 800, Math.random() * 100);
         }
+        //Initialisiere Werte f�r Skifahrer
         for (let i = 0; i < 100; i++) {
             skier[i] = {
                 x: Math.random() * -32,
@@ -61,6 +62,7 @@ var A3;
     function animate() {
         console.log("Timeout");
         crc2.putImageData(imgData, 0, 0);
+        //Animation Schnee
         for (let i = 0; i < snowPos.length; i += 2) {
             snowPos[i]++;
             if (snowPos[i] > 600) {
@@ -68,6 +70,7 @@ var A3;
             }
             drawSnow(snowPos[i - 1], snowPos[i]);
         }
+        //Animation Skifahrer
         for (let i = 0; i < 3; i++) {
             moveAndDrawSki(skier[i]);
             if (skier[i].y > 600) {
@@ -78,6 +81,7 @@ var A3;
                 skier[i].colorSki = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
         }
+        //Animation Wolken
         for (let i = 0; i < cloudPos.length; i += 2) {
             cloudPos[i] += 2;
             if (cloudPos[i] > 800) {
@@ -85,7 +89,7 @@ var A3;
             }
             drawCloud(cloudPos[i], cloudPos[i - 1], "#ffffff");
         }
-        //Alle 50ms 
+        //Alle Xms 
         window.setTimeout(animate, 30);
     }
     //B�ume
@@ -284,9 +288,10 @@ var A3;
         crc2.closePath();
         crc2.stroke();
     }
+    //Funktion zur Bewegung der Skifahrer
     function moveAndDrawSki(_skier) {
         _skier.x += _skier.dx;
-        _skier.y += _skier.dy; // andere Bewegungsmuster zu finden
+        _skier.y += _skier.dy;
         drawSki(_skier.x, _skier.y, _skier.colorHead, _skier.colorBody, _skier.colorSki);
     }
 })(A3 || (A3 = {}));
