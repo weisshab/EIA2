@@ -288,7 +288,7 @@ var A3;
         crc2.closePath();
         crc2.stroke();
     }
-    //Funktion zur Bewegung der Skifahrer
+    //Funktion zur Bewegung der Skifahrer - Code der Fkt kann auch direkt in die Animate geschrieben werden
     function moveAndDrawSki(_skier) {
         _skier.x += _skier.dx;
         _skier.y += _skier.dy;
