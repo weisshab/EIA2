@@ -112,12 +112,17 @@ namespace A3 {
         }
 
         for (let i: number = 0; i < 3; i++) {
-            
+
             moveAndDrawSki(skier[i]);
-            
-            if (skier[i].x > 810 && skier[i].y > 610) {
-                skier[i].x = -32;
+
+            if (skier[i].y > 600) {
+                skier[i].x = -10;
                 skier[i].y = Math.random() * 400;
+
+                skier[i].colorHead = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                skier[i].colorBody = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                skier[i].colorSki = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+
             }
         }
 
