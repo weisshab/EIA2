@@ -18,7 +18,7 @@ namespace A5 {
 
     let ski: Skier[] = [];
 
-    let snowPos: number[] = [];         //Startwert Schneeflocken
+    let snow: Snow[] = [];         //Startwert Schneeflocken
 
     let cloudPos: number[] = [];        //Startwert Wolken
 
@@ -31,9 +31,11 @@ namespace A5 {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-        //hier werden random 300 Schneeflocken erzeugt
-        for (let i: number = 0; i < 300; i++) {
-            snowPos.push(Math.random() * 600, Math.random() * 800);
+        //Werte für Schneeflocken
+        for (let i: number = 0; i < 500; i++) {
+            let s: Snow = new Snow();
+            s.setColor();
+            snow[i] = s;
         }
 
         //hier werden random 6 Wolken erzeugt
@@ -85,13 +87,13 @@ namespace A5 {
         crc2.putImageData(imgData, 0, 0);
 
         //Animation Schnee
-        for (let i: number = 0; i < snowPos.length; i += 2) {
-            snowPos[i]++;
-            if (snowPos[i] > 600) {
-                snowPos[i] = 0;
-            }
-            drawSnow(snowPos[i - 1], snowPos[i]);
+        for (let i: number = 0; i < snow.length; i += 2) {
+            let s: Snow = snow[i];
+            s.update();
 
+            if (s.y > 600) {
+                s.setStartNew();
+            }
         }
 
         //Animation Skifahrer
@@ -200,7 +202,7 @@ namespace A5 {
         crc2.fill();
     }
 
-    
+
     //Himmel
     function drawSky(): void {
         crc2.fillStyle = "#81F7F3";

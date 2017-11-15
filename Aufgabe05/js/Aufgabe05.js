@@ -12,16 +12,18 @@ var A5;
     window.addEventListener("load", init);
     let imgData;
     let ski = [];
-    let snowPos = []; //Startwert Schneeflocken
+    let snow = []; //Startwert Schneeflocken
     let cloudPos = []; //Startwert Wolken
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         A5.crc2 = canvas.getContext("2d");
         console.log(A5.crc2);
-        //hier werden random 300 Schneeflocken erzeugt
-        for (let i = 0; i < 300; i++) {
-            snowPos.push(Math.random() * 600, Math.random() * 800);
+        //Werte f�r Schneeflocken
+        for (let i = 0; i < 500; i++) {
+            let s = new A5.Snow();
+            s.setColor();
+            snow[i] = s;
         }
         //hier werden random 6 Wolken erzeugt
         for (let i = 0; i < 6; i++) {
@@ -55,12 +57,12 @@ var A5;
         console.log("Timeout");
         A5.crc2.putImageData(imgData, 0, 0);
         //Animation Schnee
-        for (let i = 0; i < snowPos.length; i += 2) {
-            snowPos[i]++;
-            if (snowPos[i] > 600) {
-                snowPos[i] = 0;
+        for (let i = 0; i < snow.length; i += 2) {
+            let s = snow[i];
+            s.update();
+            if (s.y > 600) {
+                s.setStartNew();
             }
-            drawSnow(snowPos[i - 1], snowPos[i]);
         }
         //Animation Skifahrer
         for (let i = 0; i < ski.length; i++) {
