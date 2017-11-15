@@ -1,6 +1,6 @@
 namespace A5 {
 
-    export class Snow {                 //Skifahrer Klasse
+    export class Snow {                 //Schnee Klasse
         x: number;
         y: number;
         color: string;

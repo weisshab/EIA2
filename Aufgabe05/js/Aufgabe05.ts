@@ -165,44 +165,7 @@ namespace A5 {
         crc2.fillStyle = _color;
         crc2.fill();
     }
-
-    //Wolke
-    function drawCloud(_x: number, _y: number, _color: string): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x + 20, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }
-
-    //Schneeflocke
-    function drawSnow(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }
-
-
+    
     //Himmel
     function drawSky(): void {
         crc2.fillStyle = "#81F7F3";
