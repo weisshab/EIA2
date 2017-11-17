@@ -22,8 +22,8 @@ namespace A5 {
         }
 
         move(): void {
-            this.x += 8;
-            this.y += Math.random() * 6 + 6;
+            this.x += 10;
+            this.y += Math.random() * 8 + 6;
         }
 
         setStart(): void {

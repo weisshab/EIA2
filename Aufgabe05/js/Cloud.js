@@ -21,8 +21,8 @@ var A5;
             this.y = Math.random() * 100;
         }
         setStartNew() {
-            this.x = Math.random() * 800;
-            this.y = 0;
+            this.x = -20;
+            this.y = Math.random() * 100;
         }
         setColor() {
             this.color = "#ffffff";

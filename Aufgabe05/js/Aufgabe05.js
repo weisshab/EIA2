@@ -13,7 +13,7 @@ var A5;
     let imgData;
     let ski = [];
     let snow = []; //Startwert Schneeflocken
-    let cloudPos = []; //Startwert Wolken
+    let cloud = []; //Startwert Wolken
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -25,9 +25,11 @@ var A5;
             s.setColor();
             snow[i] = s;
         }
-        //hier werden random 6 Wolken erzeugt
+        //hier werden 6 Wolken erzeugt
         for (let i = 0; i < 6; i++) {
-            cloudPos.push(Math.random() * 800, Math.random() * 100);
+            let s = new A5.Cloud();
+            s.setColor();
+            cloud[i] = s;
         }
         drawSky(); //Himmel zeichnen
         drawMount(); //Berge zeichnen
@@ -60,7 +62,7 @@ var A5;
         for (let i = 0; i < snow.length; i += 2) {
             let s = snow[i];
             s.update();
-            if (s.y > 600) {
+            if (s.y > 650) {
                 s.setStartNew();
             }
         }
@@ -70,15 +72,16 @@ var A5;
             s.update();
             if (s.y > 600) {
                 s.setStart();
+                s.setColor();
             }
         }
         //Animation Wolken
-        for (let i = 0; i < cloudPos.length; i += 2) {
-            cloudPos[i] += 2;
-            if (cloudPos[i] > 800) {
-                cloudPos[i] = 0;
+        for (let i = 0; i < cloud.length; i++) {
+            let s = cloud[i];
+            s.update();
+            if (s.x > 800) {
+                s.setStartNew();
             }
-            drawCloud(cloudPos[i], cloudPos[i - 1], "#ffffff");
         }
         //Alle Xms 
         window.setTimeout(animate, 30);
@@ -117,37 +120,6 @@ var A5;
         A5.crc2.closePath();
         A5.crc2.stroke();
         A5.crc2.fillStyle = _color;
-        A5.crc2.fill();
-    }
-    //Wolke
-    function drawCloud(_x, _y, _color) {
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x + 20, _y + 10, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-    }
-    //Schneeflocke
-    function drawSnow(_x, _y) {
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
         A5.crc2.fill();
     }
     //Himmel

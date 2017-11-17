@@ -20,7 +20,7 @@ namespace A5 {
 
     let snow: Snow[] = [];         //Startwert Schneeflocken
 
-    let cloudPos: number[] = [];        //Startwert Wolken
+    let cloud: Cloud[] = [];        //Startwert Wolken
 
 
     function init(): void {
@@ -38,9 +38,11 @@ namespace A5 {
             snow[i] = s;
         }
 
-        //hier werden random 6 Wolken erzeugt
+        //hier werden 6 Wolken erzeugt
         for (let i: number = 0; i < 6; i++) {
-            cloudPos.push(Math.random() * 800, Math.random() * 100);
+            let s: Cloud = new Cloud();
+            s.setColor();
+            cloud[i] = s;
         }
 
         drawSky();      //Himmel zeichnen
@@ -91,7 +93,7 @@ namespace A5 {
             let s: Snow = snow[i];
             s.update();
 
-            if (s.y > 600) {
+            if (s.y > 650) {
                 s.setStartNew();
             }
         }
@@ -104,19 +106,20 @@ namespace A5 {
 
             if (s.y > 600) {
                 s.setStart();
+                s.setColor();
             }
         }
 
 
 
         //Animation Wolken
-        for (let i: number = 0; i < cloudPos.length; i += 2) {
-            cloudPos[i] += 2;
-            if (cloudPos[i] > 800) {
-                cloudPos[i] = 0;
-            }
-            drawCloud(cloudPos[i], cloudPos[i - 1], "#ffffff");
+        for (let i: number = 0; i < cloud.length; i ++) {
+            let s: Cloud = cloud[i];
+            s.update();
 
+            if (s.x > 800) {
+                s.setStartNew();
+            }
         }
 
         //Alle Xms 
@@ -165,7 +168,7 @@ namespace A5 {
         crc2.fillStyle = _color;
         crc2.fill();
     }
-    
+
     //Himmel
     function drawSky(): void {
         crc2.fillStyle = "#81F7F3";

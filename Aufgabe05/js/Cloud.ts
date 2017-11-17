@@ -30,8 +30,8 @@ namespace A5 {
         }
 
         setStartNew(): void {
-            this.x = Math.random() * 800;
-            this.y = 0;
+            this.x = -20;
+            this.y =  Math.random() * 100;
         }
 
         setColor(): void {

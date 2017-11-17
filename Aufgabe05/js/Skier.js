@@ -13,8 +13,8 @@ var A5;
             drawSki(this.x, this.y, this.colorHead, this.colorBody, this.colorSki);
         }
         move() {
-            this.x += 8;
-            this.y += Math.random() * 6 + 6;
+            this.x += 10;
+            this.y += Math.random() * 8 + 6;
         }
         setStart() {
             this.x = Math.random() * -100;
