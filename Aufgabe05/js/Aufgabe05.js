@@ -14,6 +14,7 @@ var A5;
     let ski = [];
     let snow = []; //Startwert Schneeflocken
     let cloud = []; //Startwert Wolken
+    let tree = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -37,12 +38,11 @@ var A5;
         drawSun(); //Sonne zeichnen
         drawSnowman(); //Schneemann zeichnen
         drawLift(); //Skilift zeichnen
-        drawTree(100, 200, "#0B610B"); //fest positionierter Baum
         //random B�ume zeichnen
         for (let i = 0; i < 6; i++) {
-            let x = Math.random() * 400;
-            let y = 400 + Math.random() * 100;
-            drawTree(x, y, "#0B610B");
+            let s = new A5.Tree();
+            s.setColor();
+            tree[i] = s;
         }
         for (let i = 0; i < 4; i++) {
             let s = new A5.Skier();
@@ -85,42 +85,6 @@ var A5;
         }
         //Alle Xms 
         window.setTimeout(animate, 30);
-    }
-    //B�ume
-    function drawTree(_x, _y, _color) {
-        A5.crc2.beginPath();
-        A5.crc2.moveTo(_x, _y);
-        A5.crc2.lineTo(_x + 20, _y + 30);
-        A5.crc2.lineTo(_x - 20, _y + 30);
-        A5.crc2.closePath();
-        A5.crc2.stroke();
-        A5.crc2.fillStyle = _color;
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.moveTo(_x, _y + 30);
-        A5.crc2.lineTo(_x + 20, _y + 60);
-        A5.crc2.lineTo(_x - 20, _y + 60);
-        A5.crc2.closePath();
-        A5.crc2.stroke();
-        A5.crc2.fillStyle = _color;
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.moveTo(_x - 5, _y + 90);
-        A5.crc2.lineTo(_x + 5, _y + 90);
-        A5.crc2.lineTo(_x + 5, _y + 110);
-        A5.crc2.lineTo(_x - 5, _y + 110);
-        A5.crc2.closePath();
-        A5.crc2.stroke();
-        A5.crc2.fillStyle = "#61210B";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.moveTo(_x, _y + 60);
-        A5.crc2.lineTo(_x + 20, _y + 90);
-        A5.crc2.lineTo(_x - 20, _y + 90);
-        A5.crc2.closePath();
-        A5.crc2.stroke();
-        A5.crc2.fillStyle = _color;
-        A5.crc2.fill();
     }
     //Himmel
     function drawSky() {

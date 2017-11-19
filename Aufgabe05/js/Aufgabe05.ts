@@ -21,6 +21,8 @@ namespace A5 {
     let snow: Snow[] = [];         //Startwert Schneeflocken
 
     let cloud: Cloud[] = [];        //Startwert Wolken
+    
+    let tree: Tree[] = [];
 
 
     function init(): void {
@@ -57,14 +59,11 @@ namespace A5 {
 
         drawLift();     //Skilift zeichnen
 
-
-        drawTree(100, 200, "#0B610B");  //fest positionierter Baum
-
         //random Bäume zeichnen
         for (let i: number = 0; i < 6; i++) {
-            let x: number = Math.random() * 400;
-            let y: number = 400 + Math.random() * 100;
-            drawTree(x, y, "#0B610B");
+            let s: Tree = new Tree();
+            s.setColor();
+            tree[i] = s;
         }
 
         for (let i: number = 0; i < 4; i++) {
@@ -113,7 +112,7 @@ namespace A5 {
 
 
         //Animation Wolken
-        for (let i: number = 0; i < cloud.length; i ++) {
+        for (let i: number = 0; i < cloud.length; i++) {
             let s: Cloud = cloud[i];
             s.update();
 
@@ -125,48 +124,6 @@ namespace A5 {
         //Alle Xms 
         window.setTimeout(animate, 30);
 
-    }
-
-
-    //Bäume
-    function drawTree(_x: number, _y: number, _color: string): void {
-
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 20, _y + 30);
-        crc2.lineTo(_x - 20, _y + 30);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _color;
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, _y + 30);
-        crc2.lineTo(_x + 20, _y + 60);
-        crc2.lineTo(_x - 20, _y + 60);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _color;
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.moveTo(_x - 5, _y + 90);
-        crc2.lineTo(_x + 5, _y + 90);
-        crc2.lineTo(_x + 5, _y + 110);
-        crc2.lineTo(_x - 5, _y + 110);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#61210B";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, _y + 60);
-        crc2.lineTo(_x + 20, _y + 90);
-        crc2.lineTo(_x - 20, _y + 90);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _color;
-        crc2.fill();
     }
 
     //Himmel
