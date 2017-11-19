@@ -16,7 +16,12 @@ namespace A5 {
         }
 
         draw(): void {
-            drawSnow(this.x, this.y);
+            //Schneeflocke
+            crc2.beginPath();
+            crc2.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
         }
 
         move(): void {
@@ -40,12 +45,4 @@ namespace A5 {
 
     }
 
-    //Schneeflocke
-    function drawSnow(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }
 }

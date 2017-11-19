@@ -16,7 +16,32 @@ namespace A5 {
         }
 
         draw(): void {
-            drawCloud(this.x, this.y);
+            //Wolke
+
+            crc2.beginPath();
+            crc2.arc(this.x, this.y, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
+
+            crc2.beginPath();
+            crc2.arc(this.x + 20, this.y + 10, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
+
+            crc2.beginPath();
+            crc2.arc(this.x, this.y + 10, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
+
+            crc2.beginPath();
+            crc2.arc(this.x - 20, this.y, 20, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fillStyle = "#ffffff";
+            crc2.fill();
+
         }
 
         move(): void {
@@ -31,7 +56,7 @@ namespace A5 {
 
         setStartNew(): void {
             this.x = -20;
-            this.y =  Math.random() * 100;
+            this.y = Math.random() * 100;
         }
 
         setColor(): void {
@@ -40,30 +65,4 @@ namespace A5 {
 
     }
 
-    //Wolke
-    function drawCloud(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x + 20, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }
 }

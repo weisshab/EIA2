@@ -10,7 +10,27 @@ var A5;
             this.draw();
         }
         draw() {
-            drawCloud(this.x, this.y);
+            //Wolke
+            A5.crc2.beginPath();
+            A5.crc2.arc(this.x, this.y, 20, 0, 2 * Math.PI);
+            A5.crc2.closePath();
+            A5.crc2.fillStyle = "#ffffff";
+            A5.crc2.fill();
+            A5.crc2.beginPath();
+            A5.crc2.arc(this.x + 20, this.y + 10, 20, 0, 2 * Math.PI);
+            A5.crc2.closePath();
+            A5.crc2.fillStyle = "#ffffff";
+            A5.crc2.fill();
+            A5.crc2.beginPath();
+            A5.crc2.arc(this.x, this.y + 10, 20, 0, 2 * Math.PI);
+            A5.crc2.closePath();
+            A5.crc2.fillStyle = "#ffffff";
+            A5.crc2.fill();
+            A5.crc2.beginPath();
+            A5.crc2.arc(this.x - 20, this.y, 20, 0, 2 * Math.PI);
+            A5.crc2.closePath();
+            A5.crc2.fillStyle = "#ffffff";
+            A5.crc2.fill();
         }
         move() {
             this.x += 2;
@@ -29,28 +49,5 @@ var A5;
         }
     }
     A5.Cloud = Cloud;
-    //Wolke
-    function drawCloud(_x, _y) {
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x + 20, _y + 10, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x - 20, _y, 20, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-    }
 })(A5 || (A5 = {}));
 //# sourceMappingURL=Cloud.js.map

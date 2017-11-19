@@ -10,7 +10,12 @@ var A5;
             this.draw();
         }
         draw() {
-            drawSnow(this.x, this.y);
+            //Schneeflocke
+            A5.crc2.beginPath();
+            A5.crc2.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+            A5.crc2.closePath();
+            A5.crc2.fillStyle = "#ffffff";
+            A5.crc2.fill();
         }
         move() {
             this.x += 0;
@@ -29,13 +34,5 @@ var A5;
         }
     }
     A5.Snow = Snow;
-    //Schneeflocke
-    function drawSnow(_x, _y) {
-        A5.crc2.beginPath();
-        A5.crc2.arc(_x, _y, 2, 0, 2 * Math.PI);
-        A5.crc2.closePath();
-        A5.crc2.fillStyle = "#ffffff";
-        A5.crc2.fill();
-    }
 })(A5 || (A5 = {}));
 //# sourceMappingURL=Snow.js.map
