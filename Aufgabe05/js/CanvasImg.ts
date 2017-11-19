@@ -1,14 +1,11 @@
 namespace A5 {
 
     export class CanvasImg {                 //CanvasImg Klasse
-        x: number;
-        y: number;
-        color: string;
 
         constructor() {
             this.draw();
         }
-        
+
         draw(): void {
 
             //Himmel
@@ -124,3 +121,4 @@ namespace A5 {
 
         }
     }
+}
