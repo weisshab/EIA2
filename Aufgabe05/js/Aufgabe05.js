@@ -24,25 +24,21 @@ var A5;
         //Werte f�r Schneeflocken
         for (let i = 0; i < 500; i++) {
             let s = new A5.Snow();
-            s.setColor();
             snow[i] = s;
         }
         //hier werden 6 Wolken erzeugt
         for (let i = 0; i < 6; i++) {
             let s = new A5.Cloud();
-            s.setColor();
             cloud[i] = s;
         }
         canvasImg = new A5.CanvasImg();
         //random B�ume zeichnen
         for (let i = 0; i < 6; i++) {
             let s = new A5.Tree();
-            s.setColor();
             tree[i] = s;
         }
         for (let i = 0; i < 4; i++) {
             let s = new A5.Skier();
-            s.setColor();
             ski[i] = s;
         }
         //ImageData des Camvas in imgData abspeichern
@@ -58,7 +54,7 @@ var A5;
         for (let i = 0; i < snow.length; i += 2) {
             let s = snow[i];
             s.update();
-            if (s.y > 650) {
+            if (s.y > 600) {
                 s.setStartNew();
             }
         }

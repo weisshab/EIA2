@@ -39,14 +39,12 @@ namespace A5 {
         //Werte für Schneeflocken
         for (let i: number = 0; i < 500; i++) {
             let s: Snow = new Snow();
-            s.setColor();
             snow[i] = s;
         }
 
         //hier werden 6 Wolken erzeugt
         for (let i: number = 0; i < 6; i++) {
             let s: Cloud = new Cloud();
-            s.setColor();
             cloud[i] = s;
         }
         
@@ -56,13 +54,12 @@ namespace A5 {
         //random Bäume zeichnen
         for (let i: number = 0; i < 6; i++) {
             let s: Tree = new Tree();
-            s.setColor();
             tree[i] = s;
         }
 
         for (let i: number = 0; i < 4; i++) {
             let s: Skier = new Skier();
-            s.setColor();
+            
             ski[i] = s;
         }
 
@@ -86,7 +83,7 @@ namespace A5 {
             let s: Snow = snow[i];
             s.update();
 
-            if (s.y > 650) {
+            if (s.y > 600) {
                 s.setStartNew();
             }
         }
