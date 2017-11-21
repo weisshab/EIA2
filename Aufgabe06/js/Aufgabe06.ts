@@ -1,5 +1,5 @@
 /* 
-Aufgabe: Funktionen A4
+Aufgabe: Funktionen A6
 Name: Bastian Weisshaar
 Matrikel: 256578
 Datum: 12.11.2017
