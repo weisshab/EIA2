@@ -1,13 +1,10 @@
 var A6;
 (function (A6) {
-    class Snow {
+    class Snow extends A6.MovingObjects {
         constructor() {
+            super();
             this.setColor();
             this.setStart();
-        }
-        update() {
-            this.move();
-            this.draw();
         }
         draw() {
             //Schneeflocke
@@ -19,7 +16,10 @@ var A6;
         }
         move() {
             this.x += 0;
-            this.y += 2;
+            this.y += Math.random() * 4;
+            if (this.y > 600) {
+                this.setStartNew();
+            }
         }
         setStart() {
             this.x = Math.random() * 800;
@@ -30,7 +30,7 @@ var A6;
             this.y = 0;
         }
         setColor() {
-            this.color = "#ffffff";
+            this.color1 = "#ffffff";
         }
     }
     A6.Snow = Snow;

@@ -1,13 +1,10 @@
 var A6;
 (function (A6) {
-    class Cloud {
+    class Cloud extends A6.MovingObjects {
         constructor() {
+            super();
             this.setColor();
             this.setStart();
-        }
-        update() {
-            this.move();
-            this.draw();
         }
         draw() {
             //Wolke
@@ -35,6 +32,9 @@ var A6;
         move() {
             this.x += 2;
             this.y += 0;
+            if (this.x > 810) {
+                this.setStartNew();
+            }
         }
         setStart() {
             this.x = Math.random() * 800;
@@ -45,7 +45,7 @@ var A6;
             this.y = Math.random() * 100;
         }
         setColor() {
-            this.color = "#ffffff";
+            this.color1 = "#ffffff";
         }
     }
     A6.Cloud = Cloud;

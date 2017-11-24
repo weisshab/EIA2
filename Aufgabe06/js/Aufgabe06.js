@@ -1,5 +1,5 @@
 /*
-Aufgabe: Funktionen A6
+Aufgabe: A6
 Name: Bastian Weisshaar
 Matrikel: 256578
 Datum: 12.11.2017
@@ -12,6 +12,7 @@ var A6;
     window.addEventListener("load", init);
     let imgData;
     let canvasImg;
+    let objects = [];
     let ski = [];
     let snow = []; //Startwert Schneeflocken
     let cloud = []; //Startwert Wolken
@@ -22,24 +23,26 @@ var A6;
         A6.crc2 = canvas.getContext("2d");
         console.log(A6.crc2);
         //Werte f�r Schneeflocken
-        for (let i = 0; i < 500; i++) {
-            let s = new A6.Snow();
-            snow[i] = s;
+        for (let i = 0; i < 400; i++) {
+            let t = new A6.Snow();
+            objects.push(t);
         }
-        //hier werden 6 Wolken erzeugt
+        //hier werden 6 Wolken  erstellt
+        for (let i = 0; i < 4; i++) {
+            let c = new A6.Cloud();
+            objects.push(c);
+        }
+        //Skifahrer Werte
         for (let i = 0; i < 6; i++) {
-            let s = new A6.Cloud();
-            cloud[i] = s;
+            let s = new A6.Skier();
+            objects.push(s);
+            console.log("Skifahrer");
         }
         canvasImg = new A6.CanvasImg();
         //random B�ume zeichnen
         for (let i = 0; i < 6; i++) {
             let s = new A6.Tree();
             tree[i] = s;
-        }
-        for (let i = 0; i < 4; i++) {
-            let s = new A6.Skier();
-            ski[i] = s;
         }
         //ImageData des Camvas in imgData abspeichern
         imgData = A6.crc2.getImageData(0, 0, 800, 600);
@@ -50,30 +53,10 @@ var A6;
     function animate() {
         console.log("Timeout");
         A6.crc2.putImageData(imgData, 0, 0);
-        //Animation Schnee
-        for (let i = 0; i < snow.length; i += 2) {
-            let s = snow[i];
+        //Animation MovigObjects
+        for (let i = 0; i < objects.length; i++) {
+            let s = objects[i];
             s.update();
-            if (s.y > 600) {
-                s.setStartNew();
-            }
-        }
-        //Animation Skifahrer
-        for (let i = 0; i < ski.length; i++) {
-            let s = ski[i];
-            s.update();
-            if (s.y > 600) {
-                s.setStart();
-                s.setColor();
-            }
-        }
-        //Animation Wolken
-        for (let i = 0; i < cloud.length; i++) {
-            let s = cloud[i];
-            s.update();
-            if (s.x > 800) {
-                s.setStartNew();
-            }
         }
         //Alle Xms 
         window.setTimeout(animate, 30);

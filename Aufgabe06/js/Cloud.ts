@@ -1,18 +1,11 @@
 namespace A6 {
 
-    export class Cloud {                 //Wolken Klasse
-        x: number;
-        y: number;
-        color: string;
+    export class Cloud extends MovingObjects {                 //Wolken Subklasse
 
         constructor() {
+            super();
             this.setColor();
             this.setStart();
-        }
-
-        update(): void {
-            this.move();
-            this.draw();
         }
 
         draw(): void {
@@ -47,6 +40,10 @@ namespace A6 {
         move(): void {
             this.x += 2;
             this.y += 0;
+
+            if (this.x > 810) {
+                this.setStartNew();
+            }
         }
 
         setStart(): void {
@@ -60,7 +57,7 @@ namespace A6 {
         }
 
         setColor(): void {
-            this.color = "#ffffff";
+            this.color1 = "#ffffff";
         }
 
     }

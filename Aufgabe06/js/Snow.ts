@@ -1,18 +1,11 @@
 namespace A6 {
 
-    export class Snow {                 //Schnee Klasse
-        x: number;
-        y: number;
-        color: string;
+    export class Snow extends MovingObjects {                 //Schnee Subklasse
 
         constructor() {
+            super();
             this.setColor();
             this.setStart();
-        }
-
-        update(): void {
-            this.move();
-            this.draw();
         }
 
         draw(): void {
@@ -26,7 +19,11 @@ namespace A6 {
 
         move(): void {
             this.x += 0;
-            this.y += 2;
+            this.y += Math.random() * 4;
+            
+            if (this.y > 600) {
+                this.setStartNew();
+            }
         }
 
         setStart(): void {
@@ -40,7 +37,7 @@ namespace A6 {
         }
 
         setColor(): void {
-            this.color = "#ffffff";
+            this.color1 = "#ffffff";
         }
 
     }
