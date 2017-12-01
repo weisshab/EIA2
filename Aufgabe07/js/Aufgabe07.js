@@ -8,9 +8,9 @@ var StudiVZ;
         switch (action) {
             case "n":
             case "N":
+                console.log(i);
                 var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
                 i++;
-                console.log(i);
                 alert(saveData(input));
                 break;
             case "a":
@@ -41,15 +41,16 @@ var StudiVZ;
             gender: gend,
             comment: res[5]
         };
-        console.log(students[i]);
+        console.log(students[i], students[i - 1]);
         return "Speicherung efolgreich";
     }
     function queryData(_matrikel) {
-        for (var i = 0; i < students.length; i++) {
-            console.log(students[i].matrNr);
-            console.log(i);
-            if (_matrikel == students[i].matrNr) {
-                return students[i].toString();
+        for (var j = 0; j < students.length; j++) {
+            var s = students[j];
+            console.log(s.matrNr);
+            console.log(j);
+            if (_matrikel == s.matrNr) {
+                return s.toString();
             }
         }
     }

@@ -18,14 +18,15 @@ namespace StudiVZ {
         switch (action) {
             case "n":
             case "N":
+                console.log(i);
                 var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
                 i++;
-                console.log(i);
                 alert(saveData(input));
                 break;
             case "a":
             case "A":
                 var matrikel: number = parseInt(prompt("Eingabe Matrikelnummer"));
+                
                 alert(queryData(matrikel));
                 break;
             case "s":
@@ -60,21 +61,23 @@ namespace StudiVZ {
             comment: res[5]
         };
 
-        console.log(students[i]);
+        console.log(students[i], students[i - 1]);
 
         return "Speicherung efolgreich";
 
 
     }
 
+
     function queryData(_matrikel: number): string {
 
-        for (var i: number = 0; i < students.length; i++) {
-            console.log(students[i].matrNr);
-            console.log(i);
-            
-            if (_matrikel == students[i].matrNr) {
-                return students[i].toString();
+        for (var j: number = 0; j < students.length; j++) {
+            var s: StudentData = students[j];
+            console.log(s.matrNr);
+            console.log(j);
+
+            if (_matrikel == s.matrNr) {
+                return s.toString();
             }
         }
     }
