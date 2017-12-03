@@ -26,7 +26,7 @@ namespace StudiVZ {
             case "a":
             case "A":
                 var matrikel: number = parseInt(prompt("Eingabe Matrikelnummer"));
-                
+
                 alert(queryData(matrikel));
                 break;
             case "s":
@@ -52,7 +52,7 @@ namespace StudiVZ {
             gend = true;
         }
 
-        students[i] = {
+        students[i - 1] = {
             matrNr: parseInt(res[0]),
             name: res[1],
             firstName: res[2],
@@ -77,7 +77,12 @@ namespace StudiVZ {
             console.log(j);
 
             if (_matrikel == s.matrNr) {
-                return s.toString();
+                return `Matrikelnummer: ${s.matrNr}
+                       \nName: ${s.name}
+                       \nVorname: ${s.firstName}
+                       \nAlter: ${s.age}
+                       \nGeschlecht: ${s.gender}
+                       \nKommentar:${s.comment}`;
             }
         }
     }

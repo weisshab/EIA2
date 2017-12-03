@@ -33,7 +33,7 @@ var StudiVZ;
         if (res[4] == "1") {
             gend = true;
         }
-        students[i] = {
+        students[i - 1] = {
             matrNr: parseInt(res[0]),
             name: res[1],
             firstName: res[2],
@@ -50,7 +50,12 @@ var StudiVZ;
             console.log(s.matrNr);
             console.log(j);
             if (_matrikel == s.matrNr) {
-                return s.toString();
+                return `Matrikelnummer: ${s.matrNr}
+                       \nName: ${s.name}
+                       \nVorname: ${s.firstName}
+                       \nAlter: ${s.age}
+                       \nGeschlecht: ${s.gender}
+                       \nKommentar:${s.comment}`;
             }
         }
     }
