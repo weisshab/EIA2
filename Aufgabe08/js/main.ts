@@ -28,16 +28,13 @@ namespace A8 {
 
         function main(_left: number, _top: number, _size: number, _color: number): void {
 
-            let left: number = Math.random() * window.innerWidth;
-            let top: number = Math.random() * window.innerHeight;
-
             let square: HTMLDivElement = document.createElement("div");
             square.style.position = "absolute";
             square.style.width = `${_size}px`;
             square.style.height = `${_size}px`;
 
-            square.style.left = `${left}px`;
-            square.style.top = `${top}px`;
+            square.style.left = `${_left}px`;
+            square.style.top = `${_top}px`;
 
             square.style.border = "2px solid black";
 

@@ -22,14 +22,12 @@ var A8;
             }
         }
         function main(_left, _top, _size, _color) {
-            let left = Math.random() * window.innerWidth;
-            let top = Math.random() * window.innerHeight;
             let square = document.createElement("div");
             square.style.position = "absolute";
             square.style.width = `${_size}px`;
             square.style.height = `${_size}px`;
-            square.style.left = `${left}px`;
-            square.style.top = `${top}px`;
+            square.style.left = `${_left}px`;
+            square.style.top = `${_top}px`;
             square.style.border = "2px solid black";
             square.style.backgroundColor = "hsl(" + _color + ", 100%, 50%)";
             document.body.appendChild(square);
