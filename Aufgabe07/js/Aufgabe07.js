@@ -26,6 +26,9 @@ var StudiVZ;
     function saveData(_input) {
         var str = _input;
         var res = str.split(",");
+        if (Number.isNaN(parseInt(res[0]))) {
+            return "Matrikelnummer ist keine Nummer";
+        }
         var gend;
         if (res[4] == "0") {
             gend = false;

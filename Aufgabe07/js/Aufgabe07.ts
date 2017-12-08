@@ -43,6 +43,10 @@ namespace StudiVZ {
         var str: string = _input;
         var res: string[] = str.split(",");
 
+        if (Number.isNaN(parseInt(res[0]))) {
+            return "Matrikelnummer ist keine Nummer";
+        }
+
         var gend: boolean;
         if (res[4] == "0") {
             gend = false;
