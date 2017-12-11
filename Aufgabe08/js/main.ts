@@ -18,7 +18,7 @@ namespace A8 {
             input();
         } else {
             
-            //Random Größen sehen cooler aus
+            //Random GrÃ¶ÃŸen sehen cooler aus, sonst Math.random() einfach raus machen :)
             for (let i: number = 0; i < parseInt(numbre); i++) {
                 main(Math.random() * window.innerWidth, Math.random() * window.innerHeight, 10 + Math.random() * 70, Math.random() * 360);
             }
