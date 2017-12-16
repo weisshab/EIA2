@@ -13,6 +13,7 @@ var A9;
     let savedLetter;
     let savedColor;
     function initBlackmail() {
+        alert("Ihren persönlicher Erpresserbrief können Sie hier erstellen");
         for (let i = 0; i < 26; i++) {
             let h = document.createElement("h1");
             h.innerText = String.fromCharCode(65 + i);
@@ -37,16 +38,22 @@ var A9;
     }
     function handleKeyDown(_event) {
         console.log(_event);
-        savedLetter = _event.key;
+        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20) {
+            savedLetter = String.fromCharCode(_event.keyCode);
+            console.log(savedLetter);
+        }
+        else {
+            alert("Bitte nur Buchstaben");
+        }
         savedColor = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
     }
     function writingBox() {
         let div = document.createElement("div");
         div.style.cssFloat = "left";
         div.style.width = "90%";
-        div.style.height = "30em";
+        div.style.height = "20em";
         div.style.margin = "5%";
-        div.style.backgroundColor = "#555555";
+        div.style.backgroundColor = "#aaaaaa";
         document.body.appendChild(div);
         div.addEventListener("click", drawLetters);
     }
