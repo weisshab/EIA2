@@ -88,6 +88,7 @@ namespace A9 {
             box.style.left = _event.pageX + "px";
             box.style.top = _event.pageY + "px";
 
+
             document.body.appendChild(box);
         }
     }
