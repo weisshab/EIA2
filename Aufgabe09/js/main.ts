@@ -16,7 +16,6 @@ namespace A9 {
 
 
     function initBlackmail(): void {
-        alert("Ihren persönlicher Erpresserbrief können Sie hier erstellen");
 
         for (let i: number = 0; i < 26; i++) {
             let h: HTMLHeadingElement = document.createElement("h1");

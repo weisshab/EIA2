@@ -13,7 +13,6 @@ var A9;
     let savedLetter;
     let savedColor;
     function initBlackmail() {
-        alert("Ihren persönlicher Erpresserbrief können Sie hier erstellen");
         for (let i = 0; i < 26; i++) {
             let h = document.createElement("h1");
             h.innerText = String.fromCharCode(65 + i);
