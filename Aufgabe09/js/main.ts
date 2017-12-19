@@ -40,14 +40,12 @@ namespace A9 {
         let h: HTMLHeadingElement = <HTMLHeadingElement>_event.target;
         savedLetter = h.innerText;
         savedColor = h.style.backgroundColor;
-        console.log(h.style.backgroundColor);
-        console.log(h.style.fontSize);
     }
 
     function handleKeyDown(_event: KeyboardEvent): void {
         console.log(_event);
 
-        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20 ) {
+        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20 || _event.keyCode == 18) {
             savedLetter = String.fromCharCode(_event.keyCode);
             console.log(savedLetter);
         } else {
@@ -68,6 +66,7 @@ namespace A9 {
         document.body.appendChild(div);
 
         div.addEventListener("click", drawLetters);
+        div.addEventListener("click", handleAltClick);
 
     }
 
@@ -91,7 +90,17 @@ namespace A9 {
 
             document.body.appendChild(box);
         }
+
     }
 
+    function handleAltClick(_event: MouseEvent): void {
+        let del: HTMLDivElement = <HTMLDivElement>_event.target;
+
+        if (_event.altKey) {
+            del.removeChild(del.firstChild);
+        }
+    }
+
+    
 }
 

@@ -32,12 +32,10 @@ var A9;
         let h = _event.target;
         savedLetter = h.innerText;
         savedColor = h.style.backgroundColor;
-        console.log(h.style.backgroundColor);
-        console.log(h.style.fontSize);
     }
     function handleKeyDown(_event) {
         console.log(_event);
-        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20) {
+        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20 || _event.keyCode == 18) {
             savedLetter = String.fromCharCode(_event.keyCode);
             console.log(savedLetter);
         }
@@ -55,6 +53,7 @@ var A9;
         div.style.backgroundColor = "#aaaaaa";
         document.body.appendChild(div);
         div.addEventListener("click", drawLetters);
+        div.addEventListener("click", handleAltClick);
     }
     function drawLetters(_event) {
         let box = document.createElement("div");
@@ -70,6 +69,12 @@ var A9;
             box.style.left = _event.pageX + "px";
             box.style.top = _event.pageY + "px";
             document.body.appendChild(box);
+        }
+    }
+    function handleAltClick(_event) {
+        let del = _event.target;
+        if (_event.altKey) {
+            del.removeChild(del.firstChild);
         }
     }
 })(A9 || (A9 = {}));
