@@ -67,6 +67,7 @@ namespace A9 {
 
         div.addEventListener("click", drawLetters);
         div.addEventListener("click", handleAltClick);
+        
 
     }
 
@@ -96,8 +97,8 @@ namespace A9 {
     function handleAltClick(_event: MouseEvent): void {
         let del: HTMLDivElement = <HTMLDivElement>_event.target;
 
-        if (_event.altKey) {
-            del.removeChild(del.firstChild);
+        if (_event.altKey == true) {
+            document.removeChild(del.firstChild);
         }
     }
 

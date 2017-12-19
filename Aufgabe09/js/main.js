@@ -73,8 +73,8 @@ var A9;
     }
     function handleAltClick(_event) {
         let del = _event.target;
-        if (_event.altKey) {
-            del.removeChild(del.firstChild);
+        if (_event.altKey == true) {
+            document.removeChild(del.firstChild);
         }
     }
 })(A9 || (A9 = {}));
