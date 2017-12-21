@@ -45,12 +45,11 @@ namespace A9 {
     function handleKeyDown(_event: KeyboardEvent): void {
         console.log(_event);
 
-        if (_event.keyCode > 64 && _event.keyCode < 91 || _event.keyCode == 16 || _event.keyCode == 20 || _event.keyCode == 18) {
+        if (_event.keyCode > 64 && _event.keyCode < 91) {
             savedLetter = String.fromCharCode(_event.keyCode);
             console.log(savedLetter);
-        } else {
-            alert("Bitte nur Buchstaben");
         }
+
         savedColor = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
     }
 
@@ -66,8 +65,8 @@ namespace A9 {
         document.body.appendChild(div);
 
         div.addEventListener("click", drawLetters);
-        div.addEventListener("click", handleAltClick);
-        
+
+
 
     }
 
@@ -88,6 +87,8 @@ namespace A9 {
             box.style.left = _event.pageX + "px";
             box.style.top = _event.pageY + "px";
 
+            box.addEventListener("click", handleAltClick);
+
 
             document.body.appendChild(box);
         }
@@ -98,10 +99,10 @@ namespace A9 {
         let del: HTMLDivElement = <HTMLDivElement>_event.target;
 
         if (_event.altKey == true) {
-            document.removeChild(del.firstChild);
+            document.body.removeChild(del);;
         }
     }
 
-    
+
 }
 
