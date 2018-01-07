@@ -43,20 +43,13 @@ namespace A10 {
             baum[1] = currentPrice;
             console.log(baum);
         }
-        
+
         if (target.name == "Radiogroup2") {
             let currentTree: string = target.id;
             let currentPrice: string = target.value;
             holder[0] = currentTree;
             holder[1] = currentPrice;
             console.log(holder);
-        }
-
-        if (target.name == "Stepper") {
-            let progress: HTMLProgressElement = <HTMLProgressElement>document.getElementsByTagName("meter")[0];
-            progress.value = parseFloat(target.value);
-            height = progress.value;
-            console.log(height);
         }
 
         if (target.name == "Radiogroup1") {
@@ -69,18 +62,25 @@ namespace A10 {
 
         if (this.id == "glamour") {
             console.log("Changed " + target.name + " to " + target.checked);
-            let currentGlam: string = target.id;
-            let currentPrice: string = target.value;
-            schmuck.push(currentGlam, currentPrice)
-            console.log(schmuck);
+            if (target.checked == true) {
+                let currentGlam: string = target.id;
+                let currentPrice: string = target.value;
+                schmuck.push(currentGlam, currentPrice);
+                console.log(schmuck);
+            } else {
+                let currentGlam: string = "";
+                let currentPrice: number = 0;
+                schmuck.shift();
+                schmuck.shift();
+            }
         }
 
     }
 
     function priceBox(): void {
-        let Price: string;
+        let price: string;
         let priceTree: number = 0;
-        let priceHolder:number = 0;
+        let priceHolder: number = 0;
         let priceLight: number = 0;
         let priceGlam: number = 0;
 
@@ -89,7 +89,7 @@ namespace A10 {
         if (baum[1] != undefined) {
             priceTree += parseFloat(baum[1]);
         } else { priceTree = 0; }
-        
+
         if (holder[1] != undefined) {
             priceHolder += parseFloat(holder[1]);
         } else { priceHolder = 0; }
@@ -112,12 +112,12 @@ namespace A10 {
 
 
         if (total != NaN) {
-            Price = "Gesamtbetrag: " + total + " Euro";
+            price = "Gesamtbetrag: " + total + " Euro";
             alert(`Baumart: ${priceTree + " Euro"}
-                \nHalterung: ${priceHolder+ " Euro"}
+                \nHalterung: ${priceHolder + " Euro"}
                 \nBeleuchtung: ${priceLight + " Euro"}
                 \nSchmuck: ${priceGlam + " Euro"}
-                \n${Price}`);
+                \n${price}`);
         }
     }
 }
