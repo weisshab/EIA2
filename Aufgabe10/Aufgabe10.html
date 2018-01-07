@@ -1,5 +1,5 @@
 <!-- 
-Aufgabe: 9
+Aufgabe: 10
 Name: Bastian Weisshaar
 Matrikel: 256578
 Datum: 12.12.2017
@@ -12,98 +12,88 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 <html lang="de">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Aufgabe 10</title>
-	<link rel="stylesheet" type="text/css" href="css/Aufgabe10.css">
-	<script src="js/main.js"></script>
+<meta charset="UTF-8">
+<title>Aufgabe 10</title>
+<link rel="stylesheet" type="text/css" href="css/Aufgabe10.css">
+<script src="js/main.js"></script>
 </head>
 <body>
-	<fieldset id="text">
-		<legend> Text-Input </legend>
-		Simple
-		<input type="text" name="Text" placeholder="type here" required/>
+	<fieldset id="tree">
+		<legend> Wählen Sie einen Baum </legend>
+		<input type="radio" name="Radiogroup" value="25.00" id="Weißtanne" /> <label
+			for="radio1">Weißtanne</label> <input type="radio" name="Radiogroup"
+			value="25.00" id="Rottanne" /> <label for="radio2">Rottanne</label> <input
+			type="radio" name="Radiogroup" value="40.00" id="Nordmanntanne" /> <label
+			for="radio3">Nordmanntanne</label>
+		<hr />
+		
+		<legend> Wählen Sie eine Halterung </legend>
+		<input type="radio" name="Radiogroup2" value="15.99" id="Metall" /> 
+		<label for="radio1">Metall</label> 
+		<input type="radio" name="Radiogroup2" value="29.99" id="Aluminium" /> 
+		<label for="radio2">Aluminium</label> 
+
+		
+	</fieldset>
+
+	<fieldset id="candle">
+		<legend> Wählen Sie die Beleuchtung </legend>
+		<input type="radio" name="Radiogroup1" value="17.90" id="LED" /> 
+		<label for="radio1">LED</label> 
+		<input type="radio" name="Radiogroup1" value="15.90" id="Glühbirnen" /> 
+		<label for="radio2">Glühbirnen</label> 
+		<input type="radio" name="Radiogroup1" value="19.90" id="Kerzen" /> 
+		<label for="radio3">Kerzen</label>
+	</fieldset>
+
+	<fieldset id="glamour">
+		<legend> Wählen Sie nun aus unterschiedlichsten Schmuckarten
+		</legend>
+		<legend>Kugeln</legend>
+		<input type="checkbox" name="Checkbox1" value="1.90" id="check1" />
+		<label for="check1">Rot - Matt</label><br> 
+		<input type="checkbox" name="Checkbox2" value="1.90" id="check2" /> 
+		<label for="check2">Rot - Glänzend</label><br> 
+		<input type="checkbox" name="Checkbox3" value="1.90" id="check3" /> 
+		<label for="check3">Gold - Matt</label><br>
+		<input type="checkbox" name="Checkbox4" value="1.90" id="check4" />
+		<label for="check4">Gold - Glänzend</label><br> 
+		<input type="checkbox" name="Checkbox5" value="1.90" id="check5" /> 
+		<label for="check5">Silber - Matt</label><br> 
+		<input type="checkbox" name="Checkbox6" value="1.90" id="check6" /> 
+		<label for="check6">Silber - Glänzend</label><br>
+
+	</fieldset>
+	
+		<fieldset id="text">
+		<legend>Ihre Daten</legend>
+		Vorname
+		<input type="text" name="Vorname" placeholder="type here" required/>
 		<hr/>
-		Password
-		<input type="password" name="Password" placeholder="type password here"/>
+		Nachname
+		<input type="text" name="Nachname" placeholder="type here" required/>
 		<hr/>
-		Pattern
-		<input type="text" name="Pattern" pattern="[0-9]{3}" placeholder="use RegEx"/>
+		Straße, Hausnummer
+		<input type="text" name="Adresse" placeholder="type here"/>
+		<hr/>
+		PLZ
+		<input type="text" name="Plz" pattern="[0-9]{5}" placeholder="type here"/>
+		<hr/>
+		Ort
+		<input type="text" name="Ort" placeholder="type here"/>
 		<hr/>
 		Mail
 		<input type="email" name="Mail" placeholder="place @ between"/>
 		<hr/>
-		Url
-		<input type="url" name="Url" placeholder="start with http:"/>
-		<hr/>
-		Area
-		<textarea name="Area" cols="30" rows="3" placeholder="long text here"></textarea>
+		
 	</fieldset>
-<!-- -->
-	<fieldset id="radio">
-		<legend> Radiobutton Group </legend>
-		<input type="radio" name="Radiogroup" value="radio1" id="radio1" />
-		<label for="radio1">Radio Button 1</label>
-		<input type="radio" name="Radiogroup" value="radio2" id="radio2"/>
-		<label for="radio2">Radio Button 2</label>
-		<input type="radio" name="Radiogroup" value="radio3" id="radio3"/>
-		<label for="radio3">Radio Button 3</label>
-	</fieldset>
-<!-- -->
-	<fieldset id="checkbox">
-		<legend> Checkbox Group </legend>
-		<input type="checkbox" name="Checkbox1" value="check1" id="check1"/>
-		<label for="check1">Checkbox 1</label>
-		<input type="checkbox" name="Checkbox2" value="check2" id="check2"/>
-		<label for="check2">Checkbox 2</label>
-		<input type="checkbox" name="Checkbox3" value="check3" id="check3"/>
-		<label for="check3">Checkbox 3</label>
-	</fieldset>
-<!-- -->
-	<fieldset id="select">
-		<legend> Selection &amp; Interaction </legend>
-		Slider
-		<input type="range" name="Slider" min="0" max="1" step="0.1" value="0"/>
-		<hr/>
-		Stepper
-		<input type="number" name="Stepper" step="0.1" min="-1" max="1" value="0"/>
-		<hr/>
-		Datalist
-		<input type="text" name="Datalist" list="options" placeholder="what to buy?"/>
-		<datalist id="options">
-			<option value="Butter"> </option>
-			<option value="Milk"> </option>
-			<option value="Flour"> </option>
-			<option value="Sugar"> </option>
-			<option value="Eggs"> </option>
-			<option value="Salt"> </option>
-			<option value="Bread"> </option>
-		</datalist>
-		<hr/>
-		Select Box
-		<select name="Select" id="select">
-			<optgroup label="OptGroup1"></optgroup>
-			<option value="option1">First Option</option>
-			<option value="option2" selected>Second Option</option>
-			<optgroup label="OptGroup2"></optgroup>
-			<option value="option3">Third Option</option>
-			<option value="option4">Fourth Option</option>
-		</select>
-		<hr/>
-		Button
-		<button name="Button" type="button">Click me!</button>
-	</fieldset>
-<!-- -->
-	<fieldset id="output">
-		<legend> Output </legend>
-		Output
-		<output name="out">---	Here's a result</output>
-		<hr/>
-		Progress
-		<progress value="0" max="1"> </progress>
-		<hr/>
-		Meter
-		<meter value="0" min="-1" max="1"> </meter>
-</fieldset>
+		--------------------------------------------------------------------------------- <br>
+	<p></p>	
+	
+	<button id="check">Preisübersicht!</button>
+	<button id="check1">Check Out!</button>
+
+
 
 </body>
 </html>
