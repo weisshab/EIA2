@@ -96,7 +96,7 @@ var A10;
         console.log("Glam: " + priceGlam);
         let total = priceTree + priceHolder + priceLight + priceGlam;
         if (total != NaN) {
-            price = "Gesamtbetrag: " + total + " Euro";
+            price = "Gesamtbetrag: " + Math.round(total) + " Euro";
             alert(`Baumart: ${priceTree + " Euro"}
                 \nHalterung: ${priceHolder + " Euro"}
                 \nBeleuchtung: ${priceLight + " Euro"}
