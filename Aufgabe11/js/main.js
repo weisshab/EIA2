@@ -6,8 +6,8 @@ Datum: 12.12.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var A10;
-(function (A10) {
+var A11;
+(function (A11) {
     window.addEventListener("load", createElements);
     window.addEventListener("change", warenkorb);
     var name;
@@ -19,7 +19,7 @@ var A10;
     var zusatz;
     var label;
     let checkedId = [];
-    var baumArt = [A10.posten[0].name, "" + A10.posten[0].preis];
+    var baumArt = [A11.posten[0].name, "" + A11.posten[0].preis];
     var halter = ["kein Halter", "0"];
     var beleuchtungW = [];
     var schmuck = [];
@@ -39,17 +39,17 @@ var A10;
         selectBox2.id = "selectBeleuchtung";
         beleuchtung.appendChild(selectBox2);
         let schmuckartikel = document.getElementById("schmuckartikel");
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Beleuchtung" && A10.posten[i].preis == 0) {
-                beleuchtungW = [A10.posten[i].name, "" + A10.posten[i].preis];
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Beleuchtung" && A11.posten[i].preis == 0) {
+                beleuchtungW = [A11.posten[i].name, "" + A11.posten[i].preis];
             }
-            if (A10.posten[i].art == "Baumart") {
+            if (A11.posten[i].art == "Baumart") {
                 var opt = document.createElement("option");
-                opt.innerText = A10.posten[i].name;
+                opt.innerText = A11.posten[i].name;
                 opt.id = "option" + i;
                 selectBox.appendChild(opt);
             }
-            else if (A10.posten[i].art == "Halter") {
+            else if (A11.posten[i].art == "Halter") {
                 var radioB = document.createElement("input");
                 radioB.type = "radio";
                 radioB.name = "radioGroupHalterung";
@@ -59,16 +59,16 @@ var A10;
                 label = document.createElement("label");
                 label.id = "label" + i;
                 label.htmlFor = radioB.id;
-                label.innerText = A10.posten[i].name;
+                label.innerText = A11.posten[i].name;
                 halterung.appendChild(label);
             }
-            else if (A10.posten[i].art == "Beleuchtung") {
+            else if (A11.posten[i].art == "Beleuchtung") {
                 var opt2 = document.createElement("option");
-                opt2.innerText = A10.posten[i].name;
+                opt2.innerText = A11.posten[i].name;
                 opt2.id = "option2." + i;
                 selectBox2.appendChild(opt2);
             }
-            else if (A10.posten[i].art == "Schmuck") {
+            else if (A11.posten[i].art == "Schmuck") {
                 var checkB = document.createElement("input");
                 checkB.type = "checkbox";
                 checkB.name = "CheckboxSchmuckartikel";
@@ -78,7 +78,7 @@ var A10;
                 var label2 = document.createElement("label");
                 label2.id = "label2." + i;
                 label2.htmlFor = checkB.id;
-                label2.innerText = A10.posten[i].name;
+                label2.innerText = A11.posten[i].name;
                 schmuckartikel.appendChild(label2);
                 let stepper = document.createElement("input");
                 stepper.type = "number";
@@ -145,8 +145,8 @@ var A10;
         daten.appendChild(zusatz);
         //Lieferoptionen:
         let lieferopt = document.getElementById("lieferoptionen");
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Lieferung") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Lieferung") {
                 var radioB2 = document.createElement("input");
                 radioB2.type = "radio";
                 radioB2.name = "radioGroupLieferoptionen";
@@ -156,7 +156,7 @@ var A10;
                 var label3 = document.createElement("label");
                 label3.id = "label3." + i;
                 label3.htmlFor = radioB2.id;
-                label3.innerText = A10.posten[i].name;
+                label3.innerText = A11.posten[i].name;
                 lieferopt.appendChild(label3);
             }
         }
@@ -180,25 +180,25 @@ var A10;
         korb.style.border = "1px solid black";
         korb.innerHTML = "<span>Warenkorb</span> <p></p>";
         console.log(target.value);
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Schmuck") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Schmuck") {
                 werte[i] = document.getElementById("stepper" + i);
                 check[i] = document.getElementById("check" + i);
             }
-            if (target.value == A10.posten[i].name && target.id == "selectBaumart") {
-                baumArt[0] = A10.posten[i].name;
-                baumArt[1] = "" + A10.posten[i].preis;
+            if (target.value == A11.posten[i].name && target.id == "selectBaumart") {
+                baumArt[0] = A11.posten[i].name;
+                baumArt[1] = "" + A11.posten[i].preis;
             }
             else if (target.id == "radio" + i) {
-                halter[0] = A10.posten[i].name;
-                halter[1] = "" + A10.posten[i].preis;
+                halter[0] = A11.posten[i].name;
+                halter[1] = "" + A11.posten[i].preis;
             }
-            else if (target.value == A10.posten[i].name && target.id == "selectBeleuchtung") {
-                beleuchtungW[0] = A10.posten[i].name;
-                beleuchtungW[1] = "" + A10.posten[i].preis;
+            else if (target.value == A11.posten[i].name && target.id == "selectBeleuchtung") {
+                beleuchtungW[0] = A11.posten[i].name;
+                beleuchtungW[1] = "" + A11.posten[i].preis;
             }
             else if (target.id == "check" + i || target.id == "stepper" + i) {
-                schmuck[i] = [A10.posten[i].name, "" + (A10.posten[i].preis * parseInt(werte[i].value))];
+                schmuck[i] = [A11.posten[i].name, "" + (A11.posten[i].preis * parseInt(werte[i].value))];
             }
         }
         //write
@@ -232,5 +232,5 @@ var A10;
             document.body.appendChild(feedback);
         }
     }
-})(A10 || (A10 = {}));
+})(A11 || (A11 = {}));
 //# sourceMappingURL=main.js.map

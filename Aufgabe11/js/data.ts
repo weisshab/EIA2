@@ -1,4 +1,4 @@
-namespace A10 {
+namespace A11 {
 
     //Baumart
     export interface Bestellposten {

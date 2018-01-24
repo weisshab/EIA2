@@ -1,6 +1,6 @@
-var A10;
-(function (A10) {
-    A10.posten = [
+var A11;
+(function (A11) {
+    A11.posten = [
         { art: "Baumart", name: "Kein Baum", preis: 0 },
         { art: "Baumart", name: "Nordmanntanne", preis: 31.55 },
         { art: "Baumart", name: "Blaufichte", preis: 48.36 },
@@ -29,5 +29,5 @@ var A10;
         { art: "Lieferung", name: "Standard-Lieferung", preis: 0.0 },
         { art: "Lieferung", name: "Express-Lieferung", preis: 4.88 }
     ];
-})(A10 || (A10 = {}));
+})(A11 || (A11 = {}));
 //# sourceMappingURL=data.js.map

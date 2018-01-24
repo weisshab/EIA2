@@ -6,8 +6,8 @@ Datum: 12.12.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var DatabaseClient;
-(function (DatabaseClient) {
+var A12;
+(function (A12) {
     window.addEventListener("load", init);
     function init(_event) {
         console.log("Init");
@@ -51,5 +51,5 @@ var DatabaseClient;
             console.log(responseAsJson);
         }
     }
-})(DatabaseClient || (DatabaseClient = {}));
+})(A12 || (A12 = {}));
 //# sourceMappingURL=main.js.map
