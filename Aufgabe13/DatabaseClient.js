@@ -1,13 +1,5 @@
-/*
-Aufgabe: 10
-Name: Bastian Weisshaar
-Matrikel: 256578
-Datum: 12.12.2017
-    
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-*/
-var A12;
-(function (A12) {
+var DatabaseClient;
+(function (DatabaseClient) {
     window.addEventListener("load", init);
     function init(_event) {
         console.log("Init");
@@ -32,7 +24,7 @@ var A12;
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         //xhr.open("GET", "http://localhost:8100?" + _query, true);
-        xhr.open("GET", "https://eia2-w17-databasetest.herokuapp.com/?" + _query, true);
+        xhr.open("GET", "https://weisshab-eia2-node.herokuapp.com/?" + _query, true);
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
@@ -51,5 +43,5 @@ var A12;
             console.log(responseAsJson);
         }
     }
-})(A12 || (A12 = {}));
-//# sourceMappingURL=main.js.map
+})(DatabaseClient || (DatabaseClient = {}));
+//# sourceMappingURL=DatabaseClient.js.map
