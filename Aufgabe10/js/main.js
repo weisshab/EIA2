@@ -40,6 +40,12 @@ var A10;
             holder[1] = currentPrice;
             console.log(holder);
         }
+        if (target.name == "Stepper") {
+            let progress = document.getElementsByTagName("meter")[0];
+            progress.value = parseFloat(target.value);
+            height = progress.value;
+            console.log(height);
+        }
         if (target.name == "Radiogroup1") {
             let currentLights = target.id;
             let currentPrice = target.value;
@@ -49,22 +55,14 @@ var A10;
         }
         if (this.id == "glamour") {
             console.log("Changed " + target.name + " to " + target.checked);
-            if (target.checked == true) {
-                let currentGlam = target.id;
-                let currentPrice = target.value;
-                schmuck.push(currentGlam, currentPrice);
-                console.log(schmuck);
-            }
-            else {
-                let currentGlam = "";
-                let currentPrice = 0;
-                schmuck.shift();
-                schmuck.shift();
-            }
+            let currentGlam = target.id;
+            let currentPrice = target.value;
+            schmuck.push(currentGlam, currentPrice);
+            console.log(schmuck);
         }
     }
     function priceBox() {
-        let price;
+        let Price;
         let priceTree = 0;
         let priceHolder = 0;
         let priceLight = 0;
@@ -96,12 +94,12 @@ var A10;
         console.log("Glam: " + priceGlam);
         let total = priceTree + priceHolder + priceLight + priceGlam;
         if (total != NaN) {
-            price = "Gesamtbetrag: " + Math.round(total) + " Euro";
+            Price = "Gesamtbetrag: " + total + " Euro";
             alert(`Baumart: ${priceTree + " Euro"}
                 \nHalterung: ${priceHolder + " Euro"}
                 \nBeleuchtung: ${priceLight + " Euro"}
                 \nSchmuck: ${priceGlam + " Euro"}
-                \n${price}`);
+                \n${Price}`);
         }
     }
 })(A10 || (A10 = {}));
