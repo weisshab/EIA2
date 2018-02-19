@@ -6,7 +6,7 @@ var Ue1;
     console.log(canvas);
     let crc2;
     console.log(crc2);
-    let ballPos = [350, 450, 120, 120];
+    let ballPos = [400, 450, 60];
     let imgData;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -48,7 +48,7 @@ var Ue1;
         crc2.stroke();
         crc2.closePath();
         drawBasket();
-        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
+        drawNet();
         //ImageData des Camvas in imgData abspeichern
         imgData = crc2.getImageData(0, 0, 800, 600);
     }
@@ -74,6 +74,8 @@ var Ue1;
         crc2.lineWidth = 3;
         crc2.strokeStyle = "black";
         crc2.stroke();
+    }
+    function drawNet() {
         //Netz
         crc2.beginPath();
         crc2.moveTo(381, 253);
@@ -112,25 +114,40 @@ var Ue1;
         crc2.strokeStyle = "black";
         crc2.stroke();
     }
-    function drawBall(_x, _y, _cx, _cy) {
-        var image = new Image();
-        image.src = "img/Ball.gif";
-        crc2.drawImage(image, _x, _y, _cx, _cy);
+    function drawBall(_x, _y, _cx) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
+        crc2.fillStyle = "orange";
+        crc2.fill();
+        crc2.stroke();
     }
     function animateScore() {
         crc2.putImageData(imgData, 0, 0);
-        ballPos[0] -= 2 * 5;
-        ballPos[1] += 0;
-        ballPos[2] -= 2 * 5;
-        ballPos[3] -= 2 * 5;
-        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
+        if (ballPos[2] > 30) {
+            ballPos[1] -= 50;
+            ballPos[2] -= 7;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+        else if (ballPos[2] > 20) {
+            ballPos[1] += 20;
+            ballPos[2] -= 2 * 5;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+        else if (ballPos[1] < 445) {
+            ballPos[1] += 20;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawNet();
+        }
+        else {
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
         //Alle 50ms 
         window.setTimeout(animateScore, 50);
     }
     function Score(_event) {
-        var x = _event.clientX;
-        var y = _event.clientY;
-        if (x <= 425 && x <= 392 && y <= 256 && y <= 228) {
+        let x = _event.clientX;
+        let y = _event.clientY;
+        if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
         }
         console.log(x, y);

@@ -8,8 +8,8 @@ namespace Ue1 {
     let crc2: CanvasRenderingContext2D;
     console.log(crc2);
 
-    let ballPos: number[] = [350, 450, 120, 120];
-    
+    let ballPos: number[] = [400, 450, 60];
+
     let imgData: ImageData;
 
     export function init(): void {
@@ -61,8 +61,9 @@ namespace Ue1 {
 
 
         drawBasket();
-        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
-        
+
+        drawNet();
+
         //ImageData des Camvas in imgData abspeichern
         imgData = crc2.getImageData(0, 0, 800, 600);
     }
@@ -91,6 +92,9 @@ namespace Ue1 {
         crc2.strokeStyle = "black";
         crc2.stroke();
 
+    }
+
+    function drawNet(): void {
         //Netz
         crc2.beginPath();
         crc2.moveTo(381, 253);
@@ -133,33 +137,50 @@ namespace Ue1 {
         crc2.lineWidth = 1.5;
         crc2.strokeStyle = "black";
         crc2.stroke();
-
     }
 
-    function drawBall(_x: number, _y: number, _cx: number, _cy: number): void {
-        var image = new Image();
-        image.src = "img/Ball.gif";
-        crc2.drawImage(image, _x, _y, _cx , _cy);
+    function drawBall(_x: number, _y: number, _cx: number): void {
+        crc2.beginPath();
+        crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
+        crc2.fillStyle = "orange";
+        crc2.fill();
+        crc2.stroke();
     }
 
-    function animateScore() {
+    function animateScore(): void {
         crc2.putImageData(imgData, 0, 0);
-        
-        ballPos[0] -= 2 * 5;
-        ballPos[1] += 0;
-        ballPos[2] -= 2 * 5;
-        ballPos[3] -= 2 * 5;
-        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
+
+        if (ballPos[2] > 30) {
+
+            ballPos[1] -= 50;
+            ballPos[2] -= 7;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        } else if (ballPos[2] > 20) {
+
+            ballPos[1] += 20;
+            ballPos[2] -= 2 * 5;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+
+
+        } else if (ballPos[1] < 445) {
+            ballPos[1] += 20;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawNet();
+        }
+
+        else {
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
 
         //Alle 50ms 
         window.setTimeout(animateScore, 50);
     }
 
     function Score(_event: MouseEvent): void {
-        var x = _event.clientX;
-        var y = _event.clientY;
+        let x: number = _event.clientX;
+        let y: number = _event.clientY;
 
-        if (x <= 425 && x <= 392 && y <= 256 && y <= 228) {
+        if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
         }
         console.log(x, y);
