@@ -139,7 +139,7 @@ namespace Ue1 {
     function drawBall(_x: number, _y: number, _cx: number, _cy: number): void {
         var image = new Image();
         image.src = "img/Ball.gif";
-        crc2.drawImage(image, _x, _y, _cx, , _cy);
+        crc2.drawImage(image, _x, _y, _cx , _cy);
     }
 
     function animateScore() {

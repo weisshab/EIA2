@@ -1,11 +1,13 @@
 var Ue1;
 (function (Ue1) {
     window.addEventListener("load", init);
-    document.addEventListener("click", animateScore);
+    document.addEventListener("click", Score);
     let canvas;
     console.log(canvas);
     let crc2;
     console.log(crc2);
+    let ballPos = [350, 450, 120, 120];
+    let imgData;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -46,7 +48,9 @@ var Ue1;
         crc2.stroke();
         crc2.closePath();
         drawBasket();
-        drawBall();
+        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
+        //ImageData des Camvas in imgData abspeichern
+        imgData = crc2.getImageData(0, 0, 800, 600);
     }
     Ue1.init = init;
     function drawBasket() {
@@ -108,14 +112,27 @@ var Ue1;
         crc2.strokeStyle = "black";
         crc2.stroke();
     }
-    function drawBall() {
+    function drawBall(_x, _y, _cx, _cy) {
         var image = new Image();
         image.src = "img/Ball.gif";
-        crc2.drawImage(image, 350, 450, 120, 120);
+        crc2.drawImage(image, _x, _y, _cx, _cy);
     }
-    function animateScore(_event) {
+    function animateScore() {
+        crc2.putImageData(imgData, 0, 0);
+        ballPos[0] -= 2 * 5;
+        ballPos[1] += 0;
+        ballPos[2] -= 2 * 5;
+        ballPos[3] -= 2 * 5;
+        drawBall(ballPos[0], ballPos[1], ballPos[2], ballPos[3]);
+        //Alle 50ms 
+        window.setTimeout(animateScore, 50);
+    }
+    function Score(_event) {
         var x = _event.clientX;
         var y = _event.clientY;
+        if (x <= 425 && x <= 392 && y <= 256 && y <= 228) {
+            animateScore();
+        }
         console.log(x, y);
     }
 })(Ue1 || (Ue1 = {}));
