@@ -17,11 +17,11 @@ namespace Ue1 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-        //´Hintergrund
+        //Â´Hintergrund
         crc2.fillStyle = "#F5BCA9";
         crc2.fillRect(0, 0, 800, 600);
 
-        //Wände
+        //WÃ¤nde
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.lineTo(150, 150);
@@ -64,20 +64,38 @@ namespace Ue1 {
 
         drawNet();
 
-        drawBoard();
+        drawLogo();
 
 
         //ImageData des Camvas in imgData abspeichern
         imgData = crc2.getImageData(0, 0, 800, 600);
     }
 
-    function drawBoard(): void {
+    function drawLogo(): void {
+
+        crc2.font = "40px Arial black";
+        crc2.fillStyle = "red";
+        crc2.fillText("CLICK     SCORE", 230, 373);
+
+        crc2.beginPath();
+        crc2.moveTo(377, 320);
+        crc2.lineTo(420, 320);
+        crc2.lineTo(420, 360);
+        crc2.lineTo(380, 360);
+        crc2.lineTo(380, 400);
+        crc2.lineTo(423, 400);
+        crc2.lineWidth = 10;
+        crc2.stroke();
+        
+        crc2.rect(383, 550, 40, 40);
+        crc2.lineWidth = 3;
+        crc2.stroke();
+        
+        crc2.font = "50px Arial black";
+        crc2.fillStyle = "black";
+        crc2.fillText("âŸ³", 382, 585);
 
 
-
-        crc2.font = "30px Arial black";
-        crc2.fillStyle = "#000000";
-        crc2.fillText("CLICK      SCORE", 270, 370);
     }
 
     function drawBasket(): void {
@@ -156,6 +174,7 @@ namespace Ue1 {
         crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
         crc2.fillStyle = "orange";
         crc2.fill();
+        crc2.lineWidth = 1;
         crc2.stroke();
     }
 
@@ -260,6 +279,10 @@ namespace Ue1 {
 
         else if (x < 392 && x > 0 && y < 600 && y > 0) {
             animateFailLe();
+        }
+        
+        else if (x < 425 && x > 392 && y > 559 && y < 596)  {
+            location.reload();   
         }
 
         console.log(x, y);
