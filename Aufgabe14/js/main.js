@@ -2,6 +2,7 @@ var Ue1;
 (function (Ue1) {
     window.addEventListener("load", init);
     document.addEventListener("click", animateThrow);
+    document.addEventListener("touchstart", animateThrow);
     let canvas;
     console.log(canvas);
     let crc2;

@@ -1,6 +1,7 @@
 namespace Ue1 {
     window.addEventListener("load", init);
     document.addEventListener("click", animateThrow);
+    document.addEventListener("touchstart", animateThrow);
 
     let canvas: HTMLCanvasElement;
     console.log(canvas);
