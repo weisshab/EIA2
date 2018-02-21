@@ -1,6 +1,6 @@
 namespace Ue1 {
     window.addEventListener("load", init);
-    document.addEventListener("click", Score);
+    document.addEventListener("click", animateThrow);
 
     let canvas: HTMLCanvasElement;
     console.log(canvas);
@@ -64,8 +64,20 @@ namespace Ue1 {
 
         drawNet();
 
+        drawBoard();
+
+
         //ImageData des Camvas in imgData abspeichern
         imgData = crc2.getImageData(0, 0, 800, 600);
+    }
+
+    function drawBoard(): void {
+
+
+
+        crc2.font = "30px Arial black";
+        crc2.fillStyle = "#000000";
+        crc2.fillText("CLICK      SCORE", 270, 370);
     }
 
     function drawBasket(): void {
@@ -147,6 +159,64 @@ namespace Ue1 {
         crc2.stroke();
     }
 
+    function animateFailLe(): void {
+        if (ballPos[2] > 30) {
+            ballPos[0] -= 70;
+            ballPos[1] -= 50;
+            ballPos[2] -= 7;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        } else if (ballPos[2] > 20) {
+
+            ballPos[0] -= 70;
+            ballPos[1] += 20;
+            ballPos[2] -= 2 * 5;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+
+
+        } else if (ballPos[1] < 445) {
+
+            ballPos[0] -= 50;
+            ballPos[1] += 30;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+
+        else {
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+
+        //Alle 50ms 
+        window.setTimeout(animateScore, 50);
+    }
+
+    function animateFailR(): void {
+        if (ballPos[2] > 30) {
+            ballPos[0] += 70;
+            ballPos[1] -= 50;
+            ballPos[2] -= 7;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        } else if (ballPos[2] > 20) {
+
+            ballPos[0] += 70;
+            ballPos[1] += 20;
+            ballPos[2] -= 2 * 5;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+
+
+        } else if (ballPos[1] < 445) {
+
+            ballPos[0] += 50;
+            ballPos[1] += 30;
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+
+        else {
+            drawBall(ballPos[0], ballPos[1], ballPos[2]);
+        }
+
+        //Alle 50ms 
+        window.setTimeout(animateScore, 50);
+    }
+
     function animateScore(): void {
         crc2.putImageData(imgData, 0, 0);
 
@@ -176,13 +246,22 @@ namespace Ue1 {
         window.setTimeout(animateScore, 50);
     }
 
-    function Score(_event: MouseEvent): void {
+    function animateThrow(_event: MouseEvent): void {
         let x: number = _event.clientX;
         let y: number = _event.clientY;
 
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
         }
+
+        else if (x > 425 && x < 800 && y < 600 && y > 0) {
+            animateFailR();
+        }
+
+        else if (x < 392 && x > 0 && y < 600 && y > 0) {
+            animateFailLe();
+        }
+
         console.log(x, y);
     }
 }
