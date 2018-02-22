@@ -1,159 +1,124 @@
-var Ue1;
-(function (Ue1) {
+var Abschluss;
+(function (Abschluss) {
     window.addEventListener("load", init);
     let canvas;
-    let crc2;
-    console.log(crc2);
+    console.log(Abschluss.crc2);
     let ballPos = [400, 450, 60];
     let menPos;
     let imgData;
+    let background;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
-        crc2 = canvas.getContext("2d");
+        Abschluss.crc2 = canvas.getContext("2d");
         canvas.addEventListener("click", animateThrow);
-        //´Hintergrund
-        crc2.fillStyle = "#F5BCA9";
-        crc2.fillRect(0, 0, 800, 600);
-        //Wände
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(150, 150);
-        crc2.lineTo(650, 150);
-        crc2.lineTo(800, 0);
-        crc2.fillStyle = "#F3E2A9";
-        crc2.fill();
-        crc2.strokeStyle = "#000000";
-        crc2.stroke();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.moveTo(0, 600);
-        crc2.lineTo(150, 450);
-        crc2.lineTo(650, 450);
-        crc2.lineTo(800, 600);
-        crc2.fillStyle = "#F3E2A9";
-        crc2.fill();
-        crc2.strokeStyle = "#000000";
-        crc2.stroke();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.moveTo(150, 150);
-        crc2.lineTo(150, 450);
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.moveTo(650, 150);
-        crc2.lineTo(650, 450);
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.closePath();
+        background = new Abschluss.Background();
         drawBasket();
         drawNet();
         menPos = Math.random() * 450 + 150;
         drawMen(menPos);
         //ImageData des Camvas in imgData abspeichern
-        imgData = crc2.getImageData(0, 0, 800, 600);
+        imgData = Abschluss.crc2.getImageData(0, 0, 800, 600);
     }
-    Ue1.init = init;
+    Abschluss.init = init;
     function drawMen(_x) {
         //_x=300
-        crc2.beginPath();
-        crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
-        crc2.fillStyle = "brown";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.stroke();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.moveTo(_x, 375);
-        crc2.lineTo(_x, 425);
-        crc2.lineTo(_x + 30, 475);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(_x, 425);
-        crc2.lineTo(_x - 30, 475);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(_x, 390);
-        crc2.lineTo(_x - 40, 330);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(_x, 390);
-        crc2.lineTo(_x + 40, 330);
-        crc2.lineWidth = 6;
-        crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
+        Abschluss.crc2.fillStyle = "brown";
+        Abschluss.crc2.fill();
+        Abschluss.crc2.lineWidth = 2;
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.closePath();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(_x, 375);
+        Abschluss.crc2.lineTo(_x, 425);
+        Abschluss.crc2.lineTo(_x + 30, 475);
+        Abschluss.crc2.lineWidth = 6;
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(_x, 425);
+        Abschluss.crc2.lineTo(_x - 30, 475);
+        Abschluss.crc2.lineWidth = 6;
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(_x, 390);
+        Abschluss.crc2.lineTo(_x - 40, 330);
+        Abschluss.crc2.lineWidth = 6;
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(_x, 390);
+        Abschluss.crc2.lineTo(_x + 40, 330);
+        Abschluss.crc2.lineWidth = 6;
+        Abschluss.crc2.stroke();
     }
     function drawBasket() {
         //Korb-Wand
-        crc2.rect(350, 200, 100, 70);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.strokeStyle = "#000000";
-        crc2.stroke();
-        crc2.rect(383, 220, 35, 30);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.strokeStyle = "red";
-        crc2.stroke();
+        Abschluss.crc2.rect(350, 200, 100, 70);
+        Abschluss.crc2.fillStyle = "#ffffff";
+        Abschluss.crc2.fill();
+        Abschluss.crc2.lineWidth = 2;
+        Abschluss.crc2.strokeStyle = "#000000";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.rect(383, 220, 35, 30);
+        Abschluss.crc2.fillStyle = "#ffffff";
+        Abschluss.crc2.fill();
+        Abschluss.crc2.lineWidth = 2;
+        Abschluss.crc2.strokeStyle = "red";
+        Abschluss.crc2.stroke();
         //Korbrand
-        crc2.beginPath();
-        crc2.moveTo(380, 253);
-        crc2.lineTo(421, 253);
-        crc2.lineWidth = 3;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(380, 253);
+        Abschluss.crc2.lineTo(421, 253);
+        Abschluss.crc2.lineWidth = 3;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
     }
     function drawNet() {
         //Netz
-        crc2.beginPath();
-        crc2.moveTo(381, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(421, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(380, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(421, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(400, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(400, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(381, 253);
+        Abschluss.crc2.lineTo(410, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(421, 253);
+        Abschluss.crc2.lineTo(392, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(380, 253);
+        Abschluss.crc2.lineTo(392, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(421, 253);
+        Abschluss.crc2.lineTo(410, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(400, 253);
+        Abschluss.crc2.lineTo(392, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(400, 253);
+        Abschluss.crc2.lineTo(410, 282);
+        Abschluss.crc2.lineWidth = 1.5;
+        Abschluss.crc2.strokeStyle = "black";
+        Abschluss.crc2.stroke();
     }
     function drawBall(_x, _y, _cx) {
-        crc2.beginPath();
-        crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
-        crc2.fillStyle = "orange";
-        crc2.fill();
-        crc2.lineWidth = 1;
-        crc2.stroke();
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
+        Abschluss.crc2.fillStyle = "orange";
+        Abschluss.crc2.fill();
+        Abschluss.crc2.lineWidth = 1;
+        Abschluss.crc2.stroke();
     }
     function animateFailLe() {
         if (ballPos[2] > 30) {
@@ -212,7 +177,7 @@ var Ue1;
         window.setTimeout(animateScore, 50);
     }
     function animateScore() {
-        crc2.putImageData(imgData, 0, 0);
+        Abschluss.crc2.putImageData(imgData, 0, 0);
         if (ballPos[2] > 30) {
             ballPos[1] -= 50;
             ballPos[2] -= 7;
@@ -233,7 +198,6 @@ var Ue1;
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
             drawMen(menPos);
-            alert("Want another trow?");
             location.reload();
         }
         //Alle 50ms 
@@ -255,5 +219,5 @@ var Ue1;
         }
         console.log(x, y);
     }
-})(Ue1 || (Ue1 = {}));
+})(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=main.js.map
