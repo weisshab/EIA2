@@ -8,6 +8,7 @@ var Ue1;
     let crc2;
     console.log(crc2);
     let ballPos = [400, 450, 60];
+    let menPos;
     let imgData;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -50,30 +51,42 @@ var Ue1;
         crc2.closePath();
         drawBasket();
         drawNet();
-        drawLogo();
+        menPos = Math.random() * 450 + 150;
+        drawMen(menPos);
         //ImageData des Camvas in imgData abspeichern
         imgData = crc2.getImageData(0, 0, 800, 600);
     }
     Ue1.init = init;
-    function drawLogo() {
-        crc2.font = "40px Arial black";
-        crc2.fillStyle = "red";
-        crc2.fillText("CLICK     SCORE", 230, 373);
+    function drawMen(_x) {
+        //x=300
         crc2.beginPath();
-        crc2.moveTo(377, 320);
-        crc2.lineTo(420, 320);
-        crc2.lineTo(420, 360);
-        crc2.lineTo(380, 360);
-        crc2.lineTo(380, 400);
-        crc2.lineTo(423, 400);
-        crc2.lineWidth = 10;
+        crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
+        crc2.fillStyle = "brown";
+        crc2.fill();
+        crc2.lineWidth = 2;
         crc2.stroke();
-        crc2.rect(383, 550, 40, 40);
-        crc2.lineWidth = 3;
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.moveTo(_x, 375);
+        crc2.lineTo(_x, 425);
+        crc2.lineTo(_x + 30, 475);
+        crc2.lineWidth = 6;
         crc2.stroke();
-        crc2.font = "50px Arial black";
-        crc2.fillStyle = "black";
-        crc2.fillText("⟳", 382, 585);
+        crc2.beginPath();
+        crc2.moveTo(_x, 425);
+        crc2.lineTo(_x - 30, 475);
+        crc2.lineWidth = 6;
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.moveTo(_x, 390);
+        crc2.lineTo(_x - 40, 330);
+        crc2.lineWidth = 6;
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.moveTo(_x, 390);
+        crc2.lineTo(_x + 40, 330);
+        crc2.lineWidth = 6;
+        crc2.stroke();
     }
     function drawBasket() {
         //Korb-Wand
@@ -150,20 +163,24 @@ var Ue1;
             ballPos[1] -= 50;
             ballPos[2] -= 7;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else if (ballPos[2] > 20) {
             ballPos[0] -= 70;
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else if (ballPos[1] < 445) {
             ballPos[0] -= 50;
             ballPos[1] += 30;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         //Alle 50ms 
         window.setTimeout(animateScore, 50);
@@ -174,20 +191,24 @@ var Ue1;
             ballPos[1] -= 50;
             ballPos[2] -= 7;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else if (ballPos[2] > 20) {
             ballPos[0] += 70;
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else if (ballPos[1] < 445) {
             ballPos[0] += 50;
             ballPos[1] += 30;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         //Alle 50ms 
         window.setTimeout(animateScore, 50);
@@ -203,14 +224,17 @@ var Ue1;
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         else if (ballPos[1] < 445) {
             ballPos[1] += 20;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
             drawNet();
+            drawMen(menPos);
         }
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
+            drawMen(menPos);
         }
         //Alle 50ms 
         window.setTimeout(animateScore, 50);
