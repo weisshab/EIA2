@@ -1,10 +1,8 @@
 namespace Ue1 {
     window.addEventListener("load", init);
-    document.addEventListener("click", animateThrow);
-    document.addEventListener("touchend", animateThrow);
 
     let canvas: HTMLCanvasElement;
-    console.log(canvas);
+    
 
     let crc2: CanvasRenderingContext2D;
     console.log(crc2);
@@ -18,6 +16,7 @@ namespace Ue1 {
 
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        canvas.addEventListener("click", animateThrow);
 
         //´Hintergrund
         crc2.fillStyle = "#F5BCA9";
@@ -298,11 +297,9 @@ namespace Ue1 {
         window.setTimeout(animateScore, 50);
     }
 
-    function animateThrow(_event: MouseEvent, _event1: TouchEvent): void {
+    function animateThrow(_event: MouseEvent): void {
         let x: number = _event.clientX;
         let y: number = _event.clientY;
-        let x1:number = _event1.clientX;
-        let y1:number =_event1.clientY;
 
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();

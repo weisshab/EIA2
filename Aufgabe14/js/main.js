@@ -1,10 +1,7 @@
 var Ue1;
 (function (Ue1) {
     window.addEventListener("load", init);
-    document.addEventListener("click", animateThrow);
-    document.addEventListener("touchend", animateThrow);
     let canvas;
-    console.log(canvas);
     let crc2;
     console.log(crc2);
     let ballPos = [400, 450, 60];
@@ -13,6 +10,7 @@ var Ue1;
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        canvas.addEventListener("click", animateThrow);
         //´Hintergrund
         crc2.fillStyle = "#F5BCA9";
         crc2.fillRect(0, 0, 800, 600);
@@ -58,7 +56,7 @@ var Ue1;
     }
     Ue1.init = init;
     function drawMen(_x) {
-        //x=300
+        //_x=300
         crc2.beginPath();
         crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
         crc2.fillStyle = "brown";
