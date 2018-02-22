@@ -80,7 +80,7 @@ namespace Ue1 {
 
     function drawMen(_x: number): void {
 
-        //x=300
+        //_x=300
 
         crc2.beginPath();
         crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
@@ -298,13 +298,15 @@ namespace Ue1 {
         window.setTimeout(animateScore, 50);
     }
 
-    function animateThrow(_event: MouseEvent): void {
+    function animateThrow(_event: MouseEvent, _event1: TouchEvent): void {
         let x: number = _event.clientX;
         let y: number = _event.clientY;
+        let x1:number = _event1.clientX;
+        let y1:number =_event1.clientY;
 
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
-            
+
         }
 
         else if (x > 425 && x < 800 && y < 600 && y > 0) {
