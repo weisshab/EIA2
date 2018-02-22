@@ -257,6 +257,7 @@ namespace Ue1 {
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
             drawMen(menPos);
+
         }
 
         //Alle 50ms 
@@ -289,6 +290,8 @@ namespace Ue1 {
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
             drawMen(menPos);
+            alert("Want another trow?");
+            location.reload();
         }
 
         //Alle 50ms 
@@ -301,19 +304,19 @@ namespace Ue1 {
 
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
+            
         }
 
         else if (x > 425 && x < 800 && y < 600 && y > 0) {
             animateFailR();
+            console.log("failR");
         }
 
         else if (x < 392 && x > 0 && y < 600 && y > 0) {
             animateFailLe();
+            console.log("failLe");
         }
 
-        else if (x < 425 && x > 392 && y > 559 && y < 596) {
-            location.reload();
-        }
 
         console.log(x, y);
     }
