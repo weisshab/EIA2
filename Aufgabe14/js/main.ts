@@ -2,17 +2,22 @@ namespace Abschluss {
     window.addEventListener("load", init);
 
     let canvas: HTMLCanvasElement;
-    
+
 
     export let crc2: CanvasRenderingContext2D;
     console.log(crc2);
 
+    let score: HTMLDivElement = document.createElement("div");
+
     let ballPos: number[] = [400, 450, 60];
-    let menPos: number;
 
     let imgData: ImageData;
-    
+
     let background: Background;
+
+    let men: Men;
+
+    let basket: Basket;
 
     export function init(): void {
 
@@ -24,14 +29,13 @@ namespace Abschluss {
 
 
 
-        drawBasket();
+        basket = new Basket();
 
-        drawNet();
+        men = new Men();
 
-
-        menPos = Math.random() * 450 + 150;
-        drawMen(menPos);
-
+        score.innerHTML = "SCOOOORE!";
+        score.id ="score";
+        document.body.appendChild(score);
 
 
         //ImageData des Camvas in imgData abspeichern
@@ -39,47 +43,7 @@ namespace Abschluss {
     }
 
 
-
-    function drawMen(_x: number): void {
-
-        //_x=300
-
-        crc2.beginPath();
-        crc2.arc(_x, 353, 22, 0, 2 * Math.PI);
-        crc2.fillStyle = "brown";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.stroke();
-        crc2.closePath();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, 375);
-        crc2.lineTo(_x, 425);
-        crc2.lineTo(_x + 30, 475);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, 425);
-        crc2.lineTo(_x - 30, 475);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, 390);
-        crc2.lineTo(_x - 40, 330);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(_x, 390);
-        crc2.lineTo(_x + 40, 330);
-        crc2.lineWidth = 6;
-        crc2.stroke();
-
-    }
-
-    function drawBasket(): void {
+    /*function drawBasket(): void {
         //Korb-Wand
         crc2.rect(350, 200, 100, 70);
         crc2.fillStyle = "#ffffff";
@@ -103,9 +67,9 @@ namespace Abschluss {
         crc2.strokeStyle = "black";
         crc2.stroke();
 
-    }
+    }*/
 
-    function drawNet(): void {
+    /*function drawNet(): void {
         //Netz
         crc2.beginPath();
         crc2.moveTo(381, 253);
@@ -148,7 +112,7 @@ namespace Abschluss {
         crc2.lineWidth = 1.5;
         crc2.strokeStyle = "black";
         crc2.stroke();
-    }
+    }*/
 
     function drawBall(_x: number, _y: number, _cx: number): void {
         crc2.beginPath();
@@ -165,14 +129,14 @@ namespace Abschluss {
             ballPos[1] -= 50;
             ballPos[2] -= 7;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
         } else if (ballPos[2] > 20) {
 
             ballPos[0] -= 70;
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
 
 
         } else if (ballPos[1] < 445) {
@@ -180,12 +144,12 @@ namespace Abschluss {
             ballPos[0] -= 50;
             ballPos[1] += 30;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
         }
 
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
         }
 
         //Alle 50ms 
@@ -198,14 +162,14 @@ namespace Abschluss {
             ballPos[1] -= 50;
             ballPos[2] -= 7;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
         } else if (ballPos[2] > 20) {
 
             ballPos[0] += 70;
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
 
 
         } else if (ballPos[1] < 445) {
@@ -213,12 +177,12 @@ namespace Abschluss {
             ballPos[0] += 50;
             ballPos[1] += 30;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
         }
 
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
 
         }
 
@@ -239,20 +203,19 @@ namespace Abschluss {
             ballPos[1] += 20;
             ballPos[2] -= 2 * 5;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
+            men.draw();
 
 
         } else if (ballPos[1] < 445) {
             ballPos[1] += 20;
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawNet();
-            drawMen(menPos);
+            basket.drawNet();
+            men.draw();
         }
 
         else {
             drawBall(ballPos[0], ballPos[1], ballPos[2]);
-            drawMen(menPos);
-            location.reload();
+            men.draw();
         }
 
         //Alle 50ms 
@@ -265,6 +228,7 @@ namespace Abschluss {
 
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
+            score.style.display = "inline";
 
         }
 
