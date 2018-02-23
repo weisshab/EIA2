@@ -9,6 +9,7 @@ var Abschluss;
     let background;
     let men;
     let basket;
+    var audio = new Audio("NBA Sound.mp3");
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         Abschluss.crc2 = canvas.getContext("2d");
@@ -23,75 +24,6 @@ var Abschluss;
         imgData = Abschluss.crc2.getImageData(0, 0, 800, 600);
     }
     Abschluss.init = init;
-    /*function drawBasket(): void {
-        //Korb-Wand
-        crc2.rect(350, 200, 100, 70);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.strokeStyle = "#000000";
-        crc2.stroke();
-
-        crc2.rect(383, 220, 35, 30);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-        crc2.lineWidth = 2;
-        crc2.strokeStyle = "red";
-        crc2.stroke();
-
-        //Korbrand
-        crc2.beginPath();
-        crc2.moveTo(380, 253);
-        crc2.lineTo(421, 253);
-        crc2.lineWidth = 3;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-    }*/
-    /*function drawNet(): void {
-        //Netz
-        crc2.beginPath();
-        crc2.moveTo(381, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(421, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(380, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(421, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(400, 253);
-        crc2.lineTo(392, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.moveTo(400, 253);
-        crc2.lineTo(410, 282);
-        crc2.lineWidth = 1.5;
-        crc2.strokeStyle = "black";
-        crc2.stroke();
-    }*/
     function drawBall(_x, _y, _cx) {
         Abschluss.crc2.beginPath();
         Abschluss.crc2.arc(_x, _y, _cx, 0, 2 * Math.PI);
@@ -188,6 +120,7 @@ var Abschluss;
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
             score.style.display = "inline";
+            audio.play();
         }
         else if (x > 425 && x < 800 && y < 600 && y > 0) {
             animateFailR();
