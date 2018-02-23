@@ -19,7 +19,7 @@ namespace Abschluss {
 
     let basket: Basket;
 
-    var audio = new Audio("NBA Sound.mp3");
+    var audio = new Audio("NBASound.mp3");
 
 
     export function init(): void {
@@ -163,7 +163,9 @@ namespace Abschluss {
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
             score.style.display = "inline";
-            audio.play();
+
+            var aud: HTMLMediaElement = <HTMLMediaElement>document.getElementById("NBA");
+            aud.play();
 
         }
 

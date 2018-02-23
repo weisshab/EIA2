@@ -9,7 +9,7 @@ var Abschluss;
     let background;
     let men;
     let basket;
-    var audio = new Audio("NBA Sound.mp3");
+    var audio = new Audio("NBASound.mp3");
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
         Abschluss.crc2 = canvas.getContext("2d");
@@ -120,7 +120,8 @@ var Abschluss;
         if (x < 425 && x > 392 && y < 256 && y > 228) {
             animateScore();
             score.style.display = "inline";
-            audio.play();
+            var aud = document.getElementById("NBA");
+            aud.play();
         }
         else if (x > 425 && x < 800 && y < 600 && y > 0) {
             animateFailR();
